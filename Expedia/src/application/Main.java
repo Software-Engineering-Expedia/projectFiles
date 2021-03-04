@@ -75,6 +75,7 @@ public class Main extends Application
 		//End of City Images
 		
 		
+		
 		//Gridpane for Buttons
 		GridPane gridPane = new GridPane();
 		gridPane.add(buttonI1,	   0, 0, 1, 1);
