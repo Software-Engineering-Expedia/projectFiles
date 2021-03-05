@@ -1,5 +1,7 @@
 package application;
 	
+import java.util.Date;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -7,7 +9,10 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
@@ -19,10 +24,49 @@ import javafx.stage.Stage;
 
 public class Main extends Application 
 {
+	double total=0;
+	TextArea clock;
 	@Override
 	public void start(Stage primaryStage) 
 	{
 		try {
+			primaryStage.setTitle("Expedia");
+			primaryStage.setWidth(1000);
+			primaryStage.setHeight(750);
+	        
+	        TextArea ta = new TextArea();
+	        ta.setEditable(false);
+	        ta.setPrefWidth(50);
+	        ta.setPrefHeight(100);
+	        
+	        TextArea ta2= new TextArea();
+	        ta2.setEditable(false);   
+	        ta2.setStyle("-fx-font-weight: bold");
+	        ta2.setPrefWidth(200);
+	        ta2.setPrefHeight(100);
+	        
+	        clock = new TextArea();
+	        clock.setEditable(false);
+	        clock.setPrefHeight(30);   
+	        clock.setPrefWidth(900);
+	        
+	        //body
+	        Label startLoc        = new Label("Starting Location: ");
+			TextField num1TF   = new TextField();
+			Label endLoc        = new Label("Ending Location: ");
+			TextField num2TF   = new TextField();
+			Label answerL      = new Label("Answer : ");
+			TextField answerTF = new TextField();
+			
+			Button findTimes = new Button("Find Times");
+			findTimes.setOnAction(new EventHandler<ActionEvent>()
+	        {
+	            @Override public void handle(ActionEvent e)
+	            {
+	            	 
+	            }
+	        });
+			
 			//Image Buttons (Just going to be lying around for now)
 			Image miamiPic = new Image("https://grist.org/wp-content/uploads/2017/08/miami.jpg");
 			ImageView imageMI = new ImageView(miamiPic);
@@ -68,7 +112,7 @@ public class Main extends Application
 			Label name           = new Label("\t Name : ");
 			TextField nameF      = new TextField();
 			Label nameERR        = new Label("");
-			Lable phone	     = new Label('\t Phone Number: ");
+			Label phone	         = new Label("\t Phone Number: ");
 			TextField phoneF     = new TextField();
 			Label phoneERR       = new Label("");
 			Label email          = new Label("\t Email : ");
@@ -85,7 +129,7 @@ public class Main extends Application
 			RadioButton RB2 = new RadioButton("Debit\t");
 			RB1.setToggleGroup(Payment);
 			RB2.setToggleGroup(Payment);
-			RB3.setToggleGroup(Payment);
+			//RB3.setToggleGroup(Payment);
 			
 			
 			
@@ -95,9 +139,30 @@ public class Main extends Application
 			gridPane.add(buttonI2,     1, 0, 1, 1); 		
 			gridPane.add(buttonI3,     2, 0, 1, 1);
 			
+			//Gridpane for Body
+			GridPane body = new GridPane();
+			body.add(startLoc,    0, 0);
+			body.add(num1TF,   1, 0);
+			body.add(endLoc,    3, 0);
+			body.add(num2TF,   4, 0);
+			//body.add(answerL,  0, 2);
+			//body.add(answerTF, 1, 2);
+			body.add(findTimes, 5, 0);
 			
-			BorderPane root = new BorderPane();
-			Scene scene = new Scene(gridPane,1000,500);
+			//DepartTimes
+			GridPane left = new GridPane();
+			Label lb1        = new Label("Depart Times: ");
+			left.add(lb1, 0, 0);
+			
+			
+			BorderPane bp = new BorderPane();
+	        bp.setTop(clock);
+	        bp.setCenter(body);
+	        bp.setRight(left);
+	        bp.setBottom(gridPane);
+	        refreshClock();
+	        
+			Scene scene = new Scene(bp);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
@@ -108,6 +173,38 @@ public class Main extends Application
 		
 
 	}
+	
+	// Clock - thread code
+    private void refreshClock()
+    {
+    	Thread refreshClock = new Thread()
+		   {  
+			  public void run()
+			  {	 
+				while (true)
+				{
+					Date dte = new Date();
+		
+					String topMenuStr = "       " + dte.toString();					      
+				    clock.setText("Expedia   			" + topMenuStr); 
+			               
+				    try
+				    {
+					   sleep(500L);
+				    }
+				    catch (InterruptedException e) 
+				    {
+					   // TODO Auto-generated catch block
+					   e.printStackTrace();
+				    }
+				  
+	            }  // end while ( true )
+				 
+		    } // end run thread
+		 };
+
+	     refreshClock.start();
+    }
 	
 	public static void main(String[] args) 
 	{
