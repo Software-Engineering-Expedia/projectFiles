@@ -64,6 +64,29 @@ public class Main extends Application
 	                });
 			//End of City Images
 			
+			//payment method
+			Label name           = new Label("\t Name : ");
+			TextField nameF      = new TextField();
+			Label nameERR        = new Label("");
+			Lable phone	     = new Label('\t Phone Number: ");
+			TextField phoneF     = new TextField();
+			Label phoneERR       = new Label("");
+			Label email          = new Label("\t Email : ");
+			TextField emailF     = new TextField();
+			Label emailERR       = new Label("");
+			Label blank          = new Label ("");
+			Label pay			 = new Label ("\t Payment Method : ");
+			Label Card           = new Label ("\t Card Number : ");
+			TextField CardF      = new TextField();
+			Label help           = new Label("");
+		
+			ToggleGroup Payment = new ToggleGroup();
+			RadioButton RB1 = new RadioButton("Credit\t");
+			RadioButton RB2 = new RadioButton("Debit\t");
+			RB1.setToggleGroup(Payment);
+			RB2.setToggleGroup(Payment);
+			RB3.setToggleGroup(Payment);
+			
 			
 			
 			//Gridpane for Buttons
