@@ -131,6 +131,11 @@ public class Main extends Application
 			RB2.setToggleGroup(Payment);
 			//RB3.setToggleGroup(Payment);
 			
+			Image EBG = new Image("https://i.pinimg.com/originals/11/5a/b4/115ab47f78bf3fce1f070b42e69168b3.jpg");
+			BackgroundImage OrangeBG = new BackgroundImage(EBG, null, null, null, null);
+			
+			Image EXP = new Image("https://lh3.googleusercontent.com/proxy/5qazP9aR6aFS9ry_jlpbsLp0CivmsWCwiIyGO9d8OqFW76YfopxLkkbgaSwr61V8Iak7ap3z9mHkq_P2GR3oMbe-L3BrI3oQmzXKIsqC5jhS9lKo68BNnBIiFH8");
+			ImageView imageE = new ImageView(EXP);
 			
 			
 			//Gridpane for Buttons
@@ -148,6 +153,7 @@ public class Main extends Application
 			//body.add(answerL,  0, 2);
 			//body.add(answerTF, 1, 2);
 			body.add(findTimes, 5, 0);
+			body.add(imageE, 6, 12, 1, 1);
 			
 			//DepartTimes
 			GridPane left = new GridPane();
@@ -156,6 +162,7 @@ public class Main extends Application
 			
 			
 			BorderPane bp = new BorderPane();
+		bp.setBackground(new Background(OrangeBG));
 	        bp.setTop(clock);
 	        bp.setCenter(body);
 	        bp.setRight(left);
