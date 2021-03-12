@@ -184,6 +184,32 @@ public class Main extends Application
 			Image EXP = new Image("https://lh3.googleusercontent.com/proxy/5qazP9aR6aFS9ry_jlpbsLp0CivmsWCwiIyGO9d8OqFW76YfopxLkkbgaSwr61V8Iak7ap3z9mHkq_P2GR3oMbe-L3BrI3oQmzXKIsqC5jhS9lKo68BNnBIiFH8");
 			ImageView imageE = new ImageView(EXP);
 			
+<<<<<<< HEAD
+=======
+			// Gridpane for contact info
+			GridPane contact = new GridPane();
+			
+			contact.add(name, 		     0, 0, 1, 1);
+		    	contact.add(nameF, 	     1, 0, 1, 1);
+		    	contact.add(nameERR,        2, 0, 1, 1);
+		    	contact.add(email, 	     0, 2, 1, 1);
+		    	contact.add(emailF, 	     1, 2, 1, 1);
+		    	contact.add(emailERR, 	     2, 2, 1, 1);
+		    	contact.add(blank, 	     0, 3, 1, 1);
+	        	contact.add(help,           1, 3, 1, 1);
+			contact.add(pay,            2, 3, 1, 1);
+		        contact.add(Card,           0, 4, 1, 1);
+		        contact.add(CardF,          1, 4, 1, 1);
+		    
+		   	 //Gridpane for payment
+		   	GridPane payGrid = new GridPane();
+		    	gridPane.add(payGrid, 	      3, 3, 1, 1);
+		   	payGrid.add(RB1,   0,  1);
+		    	payGrid.add(RB2,   0,  2);
+
+	        	payGrid.setVgap(10);
+	        	contact.setVgap(5);
+>>>>>>> f7d91fbe1a9465b4348cf0619133a1aba32d574f
 			
 			//Gridpane for Buttons
 			BorderPane reccs = new BorderPane();
@@ -237,8 +263,14 @@ public class Main extends Application
 			//body.add(answerTF, 1, 2);
 			body.add(findTimes, 5, 0);
 			//body.add(imageE, 6, 12, 1, 1);
+<<<<<<< HEAD
 			body.add(contact, 1, 1);
 			body.add(payGrid, 1, 2);
+=======
+			body.add(contact 0,1)
+			body.add(payGrid 0,2)
+			
+>>>>>>> f7d91fbe1a9465b4348cf0619133a1aba32d574f
 			
 			//DepartTimes
 			GridPane right = new GridPane();
