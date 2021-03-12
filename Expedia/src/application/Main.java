@@ -18,6 +18,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.scene.control.ScrollPane;
@@ -70,6 +71,8 @@ public class Main extends Application
 	        });
 			
 			//Image Buttons (Just going to be lying around for now)
+			Label reccLabel        = new Label("Recommendations: ");
+			
 			Image miamiPic = new Image("https://grist.org/wp-content/uploads/2017/08/miami.jpg");
 			ImageView imageMI = new ImageView(miamiPic);
 			Button buttonI1 = new Button ("    Miami    ", imageMI);
@@ -101,6 +104,43 @@ public class Main extends Application
 			Button buttonI3 = new Button ("    Los Angeles    ", imageLA);
 			imageLA.setFitWidth(160);
 			imageLA.setFitHeight(160);
+			buttonI3.setOnAction(new EventHandler<ActionEvent>()
+	                {
+	                    @Override public void handle(ActionEvent e)
+	                    {
+	            	        
+	                    }
+	                });
+			
+			Image tokyoPic = new Image("https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/02/a0002533/img/basic/a0002533_main.jpg");
+			ImageView imageTokyo = new ImageView(tokyoPic);
+			Button buttonTokyo = new Button ("    Tokyo    ", imageTokyo);
+			imageTokyo.setFitWidth(160);
+			imageTokyo.setFitHeight(160);
+			buttonI3.setOnAction(new EventHandler<ActionEvent>()
+	                {
+	                    @Override public void handle(ActionEvent e)
+	                    {
+	            	        
+	                    }
+	                });
+			Image atlantisPic = new Image("https://thumbor.forbes.com/thumbor/fit-in/1200x0/filters%3Aformat%28jpg%29/https%3A%2F%2Fblogs-images.forbes.com%2Fdavidanderson%2Ffiles%2F2018%2F12%2Fatlantis-aquaman-1200x633.jpeg");
+			ImageView imageAtlantis = new ImageView(atlantisPic);
+			Button buttonAtlantis = new Button ("    Atlantis    ", imageAtlantis);
+			imageAtlantis.setFitWidth(160);
+			imageAtlantis.setFitHeight(160);
+			buttonI3.setOnAction(new EventHandler<ActionEvent>()
+	                {
+	                    @Override public void handle(ActionEvent e)
+	                    {
+	            	        
+	                    }
+	                });
+			Image londonPic = new Image("https://www.visitbritain.com/sites/default/files/styles/consumer_hero_image_mobile/public/consumer_components_enhanced/header_image/london-skyline-vb34141642.jpg");
+			ImageView imageLondon = new ImageView(londonPic);
+			Button buttonLondon = new Button ("    London    ", imageLondon);
+			imageLondon.setFitWidth(160);
+			imageLondon.setFitHeight(160);
 			buttonI3.setOnAction(new EventHandler<ActionEvent>()
 	                {
 	                    @Override public void handle(ActionEvent e)
@@ -143,10 +183,17 @@ public class Main extends Application
 			//Gridpane for Buttons
 			GridPane gridPane = new GridPane();
 			ScrollPane scr = new ScrollPane();
-			gridPane.add(buttonI1,	   0, 0, 1, 1);
-			gridPane.add(buttonI2,     1, 0, 1, 1); 		
-			gridPane.add(buttonI3,     2, 0, 1, 1);
+			gridPane.add(reccLabel,	     0, 0, 1, 1);
+			gridPane.add(buttonI1,	     0, 1, 1, 1);
+			gridPane.add(buttonI2,       1, 1, 1, 1); 		
+			gridPane.add(buttonI3,       2, 1, 1, 1);
+			gridPane.add(buttonTokyo,    0, 2, 1, 1);
+			gridPane.add(buttonAtlantis, 1, 2, 1, 1); 		
+			gridPane.add(buttonLondon,   2, 2, 1, 1);
+			gridPane.setStyle("-fx-background-color:#eeeefe; -fx-opacity:1;");
 			scr.setContent(gridPane);
+			scr.setPrefViewportWidth(10);
+			scr.setPrefViewportHeight(200);
 			
 			//Gridpane for Body
 			GridPane body = new GridPane();
@@ -160,16 +207,22 @@ public class Main extends Application
 			body.add(imageE, 6, 12, 1, 1);
 			
 			//DepartTimes
-			GridPane left = new GridPane();
-			Label lb1        = new Label("Depart Times: ");
-			left.add(lb1, 0, 0);
+			GridPane right = new GridPane();
+			Label lb1        = new Label("Depart Times:                                ");
+			TextArea times = new TextArea();
+	        times.setEditable(false);
+	        times.setPrefHeight(300);   
+	        times.setPrefWidth(30);
+			times.setText("//Times will be here");
+			right.add(lb1, 0, 0);
+			right.add(times, 0, 1);
 			
 			
 			BorderPane bp = new BorderPane();
 		bp.setBackground(new Background(OrangeBG));
 	        bp.setTop(clock);
 	        bp.setCenter(body);
-	        bp.setRight(left);
+	        bp.setRight(right);
 	        bp.setBottom(scr);
 	        refreshClock();
 	        
