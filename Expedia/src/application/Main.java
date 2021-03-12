@@ -34,7 +34,7 @@ public class Main extends Application
 	{
 		try {
 			primaryStage.setTitle("Expedia");
-			primaryStage.setWidth(1000);
+			primaryStage.setWidth(822);
 			primaryStage.setHeight(600);
 	        
 	        TextArea ta = new TextArea();
@@ -54,14 +54,18 @@ public class Main extends Application
 	        clock.setPrefWidth(900);
 	        
 	        //body
-	        Label startLoc        = new Label("Starting Location: ");
+	        Label startLoc        = new Label(" Starting Location: ");
+		startLoc.setStyle("-fx-font-weight: bold");
 			TextField num1TF   = new TextField();
-			Label endLoc        = new Label("Ending Location: ");
+			Label endLoc        = new Label(" Ending Location: ");
+			endLoc.setStyle("-fx-font-weight: bold");
 			TextField num2TF   = new TextField();
 			Label answerL      = new Label("Answer : ");
 			TextField answerTF = new TextField();
 			
-			Button findTimes = new Button("Find Times");
+			Button findTimes = new Button("FIND TIMES");
+			findTimes.setPrefHeight(34);
+			findTime.setStyle("-fx-font-family: Impact");
 			findTimes.setOnAction(new EventHandler<ActionEvent>()
 	        {
 	            @Override public void handle(ActionEvent e)
@@ -71,7 +75,7 @@ public class Main extends Application
 	        });
 			
 			//Image Buttons (Just going to be lying around for now)
-			Label reccLabel        = new Label("Recommendations: ");
+			Label reccLabel        = new Label("  Recommendations: ");
 			
 			Image miamiPic = new Image("https://grist.org/wp-content/uploads/2017/08/miami.jpg");
 			ImageView imageMI = new ImageView(miamiPic);
@@ -199,12 +203,12 @@ public class Main extends Application
 			GridPane body = new GridPane();
 			body.add(startLoc,    0, 0);
 			body.add(num1TF,   1, 0);
-			body.add(endLoc,    0, 1);
-			body.add(num2TF,   1, 1);
+			body.add(endLoc,    3, 0);
+			body.add(num2TF,   4, 0);
 			//body.add(answerL,  0, 2);
 			//body.add(answerTF, 1, 2);
-			body.add(findTimes, 5, 5);
-			body.add(imageE, 6, 12, 1, 1);
+			body.add(findTimes, 5, 0);
+			//body.add(imageE, 6, 12, 1, 1);
 			
 			//DepartTimes
 			GridPane right = new GridPane();
