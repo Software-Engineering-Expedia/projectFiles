@@ -182,7 +182,7 @@ public class Main extends Application
 	                });
 			//End of City Images
 			
-			Image EBG = new Image("https://i.pinimg.com/originals/11/5a/b4/115ab47f78bf3fce1f070b42e69168b3.jpg");
+			Image EBG = new Image("https://i.pinimg.com/originals/dd/91/4c/dd914c6cca076f8cebb463a81e73e7e5.jpg");
 			BackgroundImage OrangeBG = new BackgroundImage(EBG, null, null, null, null);
 			
 			Image EXP = new Image("https://lh3.googleusercontent.com/proxy/5qazP9aR6aFS9ry_jlpbsLp0CivmsWCwiIyGO9d8OqFW76YfopxLkkbgaSwr61V8Iak7ap3z9mHkq_P2GR3oMbe-L3BrI3oQmzXKIsqC5jhS9lKo68BNnBIiFH8");
