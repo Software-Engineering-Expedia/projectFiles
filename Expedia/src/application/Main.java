@@ -73,6 +73,27 @@ public class Main extends Application
 	            	 
 	            }
 	        });
+		//payment method
+		Label name           = new Label("\t Name : ");
+		TextField nameF      = new TextField();
+		Label nameERR        = new Label("");
+		Label phone	         = new Label("\t Phone Number: ");
+		TextField phoneF     = new TextField();
+		Label phoneERR       = new Label("");
+		Label email          = new Label("\t Email : ");
+		TextField emailF     = new TextField();
+		Label emailERR       = new Label("");
+		Label blank          = new Label ("");
+		Label pay			 = new Label ("\t Payment Method : ");
+		Label Card           = new Label ("\t Card Number : ");
+		TextField CardF      = new TextField();
+		Label help           = new Label("");
+		
+		ToggleGroup Payment = new ToggleGroup();
+		RadioButton RB1 = new RadioButton("Credit\t");
+		RadioButton RB2 = new RadioButton("Debit\t");
+		RB1.setToggleGroup(Payment);
+		RB2.setToggleGroup(Payment);
 			
 			//Image Buttons (Just going to be lying around for now)
 			Label reccLabel        = new Label("  Recommendations: ");
@@ -153,29 +174,6 @@ public class Main extends Application
 	                    }
 	                });
 			//End of City Images
-			
-			//payment method
-			Label name           = new Label("\t Name : ");
-			TextField nameF      = new TextField();
-			Label nameERR        = new Label("");
-			Label phone	         = new Label("\t Phone Number: ");
-			TextField phoneF     = new TextField();
-			Label phoneERR       = new Label("");
-			Label email          = new Label("\t Email : ");
-			TextField emailF     = new TextField();
-			Label emailERR       = new Label("");
-			Label blank          = new Label ("");
-			Label pay			 = new Label ("\t Payment Method : ");
-			Label Card           = new Label ("\t Card Number : ");
-			TextField CardF      = new TextField();
-			Label help           = new Label("");
-		
-			ToggleGroup Payment = new ToggleGroup();
-			RadioButton RB1 = new RadioButton("Credit\t");
-			RadioButton RB2 = new RadioButton("Debit\t");
-			RB1.setToggleGroup(Payment);
-			RB2.setToggleGroup(Payment);
-			//RB3.setToggleGroup(Payment);
 			
 			Image EBG = new Image("https://i.pinimg.com/originals/11/5a/b4/115ab47f78bf3fce1f070b42e69168b3.jpg");
 			BackgroundImage OrangeBG = new BackgroundImage(EBG, null, null, null, null);
