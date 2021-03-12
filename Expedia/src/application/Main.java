@@ -77,7 +77,6 @@ public class Main extends Application
 	            	fileIO locLog = new fileIO();
 	            	locLog.writeToFile(strSTA, strEND);
 	            }
-	            }
 	        });
 		//payment method
 		Label name           = new Label("\t Name : ");
