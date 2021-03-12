@@ -34,7 +34,7 @@ public class Main extends Application
 	{
 		try {
 			primaryStage.setTitle("Expedia");
-			primaryStage.setWidth(1000);
+			primaryStage.setWidth(809);
 			primaryStage.setHeight(600);
 	        
 	        TextArea ta = new TextArea();
@@ -54,9 +54,9 @@ public class Main extends Application
 	        clock.setPrefWidth(900);
 	        
 	        //body
-	        Label startLoc        = new Label("Starting Location: ");
+	        Label startLoc        = new Label(" Starting Location: ");
 			TextField num1TF   = new TextField();
-			Label endLoc        = new Label("Ending Location: ");
+			Label endLoc        = new Label(" Ending Location: ");
 			TextField num2TF   = new TextField();
 			Label answerL      = new Label("Answer : ");
 			TextField answerTF = new TextField();
@@ -199,12 +199,12 @@ public class Main extends Application
 			GridPane body = new GridPane();
 			body.add(startLoc,    0, 0);
 			body.add(num1TF,   1, 0);
-			body.add(endLoc,    0, 1);
-			body.add(num2TF,   1, 1);
+			body.add(endLoc,    3, 0);
+			body.add(num2TF,   4, 0);
 			//body.add(answerL,  0, 2);
 			//body.add(answerTF, 1, 2);
-			body.add(findTimes, 5, 5);
-			body.add(imageE, 6, 12, 1, 1);
+			body.add(findTimes, 5, 0);
+			//body.add(imageE, 6, 12, 1, 1);
 			
 			//DepartTimes
 			GridPane right = new GridPane();
