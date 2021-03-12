@@ -192,13 +192,13 @@ public class Main extends Application
 		    	contact.add(emailERR, 	     2, 2, 1, 1);
 		    	contact.add(blank, 	     0, 3, 1, 1);
 	        	contact.add(help,           1, 3, 1, 1);
-			contact.add(pay,            0, 6, 1, 1);
+			contact.add(pay,            2, 3, 1, 1);
 		        contact.add(Card,           0, 4, 1, 1);
 		        contact.add(CardF,          1, 4, 1, 1);
 		    
 		   	 //Gridpane for payment
 		   	GridPane payGrid = new GridPane();
-		    	gridPane.add(payGrid, 	      1, 6, 1, 1);
+		    	gridPane.add(payGrid, 	      3, 3, 1, 1);
 		   	payGrid.add(RB1,   0,  1);
 		    	payGrid.add(RB2,   0,  2);
 
@@ -230,6 +230,9 @@ public class Main extends Application
 			//body.add(answerTF, 1, 2);
 			body.add(findTimes, 5, 0);
 			//body.add(imageE, 6, 12, 1, 1);
+			body.add(contact 0,1)
+			body.add(payGrid 0,2)
+			
 			
 			//DepartTimes
 			GridPane right = new GridPane();
