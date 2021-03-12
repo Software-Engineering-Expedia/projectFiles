@@ -181,6 +181,29 @@ public class Main extends Application
 			Image EXP = new Image("https://lh3.googleusercontent.com/proxy/5qazP9aR6aFS9ry_jlpbsLp0CivmsWCwiIyGO9d8OqFW76YfopxLkkbgaSwr61V8Iak7ap3z9mHkq_P2GR3oMbe-L3BrI3oQmzXKIsqC5jhS9lKo68BNnBIiFH8");
 			ImageView imageE = new ImageView(EXP);
 			
+			// Gridpane for contact info
+			GridPane contact = new GridPane();
+			
+			gridPane.add(name, 		     0, 0, 1, 1);
+		    	gridPane.add(nameF, 	     1, 0, 1, 1);
+		    	gridPane.add(nameERR,        2, 0, 1, 1);
+		    	gridPane.add(email, 	     0, 2, 1, 1);
+		    	gridPane.add(emailF, 	     1, 2, 1, 1);
+		    	gridPane.add(emailERR, 	     2, 2, 1, 1);
+		    	gridPane.add(blank, 	     0, 3, 1, 1);
+	        	gridPane.add(help,           1, 3, 1, 1);
+			gridPane.add(pay,            0, 6, 1, 1);
+		        gridPane.add(Card,           0, 4, 1, 1);
+		        gridPane.add(CardF,          1, 4, 1, 1);
+		    
+		   	 //Gridpane for payment
+		   	GridPane payGrid = new GridPane();
+		    	gridPane.add(payGrid, 	      1, 6, 1, 1);
+		   	payGrid.add(RB1,   0,  1);
+		    	payGrid.add(RB2,   0,  2);
+
+	        	payGrid.setVgap(10);
+	        	contact.setVgap(5);
 			
 			//Gridpane for Buttons
 			GridPane gridPane = new GridPane();
@@ -196,30 +219,6 @@ public class Main extends Application
 			scr.setContent(gridPane);
 			scr.setPrefViewportWidth(10);
 			scr.setPrefViewportHeight(200);
-			
-			// Gridpane for contact info
-			GridPane contact = new GridPane();
-			
-			gridPane.add(name, 		     0, 0, 1, 1);
-		    	gridPane.add(nameF, 	     1, 0, 1, 1);
-		    	gridPane.add(nameERR,        2, 0, 1, 1);
-		    	gridPane.add(email, 	     0, 2, 1, 1);
-		    	gridPane.add(emailF, 	     1, 2, 1, 1);
-		    	gridPane.add(emailERR, 	     2, 2, 1, 1);
-		    	gridPane.add(blank, 	     0, 3, 1, 1);
-	        	gridPane.add(help,           1, 3, 1, 1);
-	        	gridPane.add(pay,            0, 3, 1, 1);
-		        gridPane.add(Card,           0, 4, 1, 1);
-		        gridPane.add(CardF,          1, 4, 1, 1);
-		    
-		   	 //Gridpane for payment
-		   	GridPane payGrid = new GridPane();
-		    	gridPane.add(payGrid, 	      1, 6, 1, 1);
-		   	payGrid.add(RB1,   0,  1);
-		    	payGrid.add(RB2,   0,  2);
-
-	        	payGrid.setVgap(10);
-	        	contact.setVgap(5);
 			
 			//Gridpane for Body
 			GridPane body = new GridPane();
