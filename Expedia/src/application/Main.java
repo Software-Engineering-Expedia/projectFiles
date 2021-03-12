@@ -208,7 +208,8 @@ public class Main extends Application
 			
 			//DepartTimes
 			GridPane right = new GridPane();
-			Label lb1        = new Label("Depart Times:                                ");
+			Label lb1        = new Label("Depart Times:                         "
+					+ "       ");
 			TextArea times = new TextArea();
 	        times.setEditable(false);
 	        times.setPrefHeight(300);   
