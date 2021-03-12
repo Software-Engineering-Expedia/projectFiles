@@ -71,7 +71,12 @@ public class Main extends Application
 	        {
 	            @Override public void handle(ActionEvent e)
 	            {
-	            	 
+	            	String strSTA = num1TF.getText();
+	            	String strEND = num2TF.getText();
+	            	
+	            	fileIO locLog = new fileIO();
+	            	locLog.writeToFile(strSTA, strEND);
+	            }
 	            }
 	        });
 		//payment method
