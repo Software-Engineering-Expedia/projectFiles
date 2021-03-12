@@ -74,6 +74,27 @@ public class Main extends Application
 	            	 
 	            }
 	        });
+		//payment method
+		Label name           = new Label("\t Name : ");
+		TextField nameF      = new TextField();
+		Label nameERR        = new Label("");
+		Label phone	         = new Label("\t Phone Number: ");
+		TextField phoneF     = new TextField();
+		Label phoneERR       = new Label("");
+		Label email          = new Label("\t Email : ");
+		TextField emailF     = new TextField();
+		Label emailERR       = new Label("");
+		Label blank          = new Label ("");
+		Label pay			 = new Label ("\t Payment Method : ");
+		Label Card           = new Label ("\t Card Number : ");
+		TextField CardF      = new TextField();
+		Label help           = new Label("");
+		
+		ToggleGroup Payment = new ToggleGroup();
+		RadioButton RB1 = new RadioButton("Credit\t");
+		RadioButton RB2 = new RadioButton("Debit\t");
+		RB1.setToggleGroup(Payment);
+		RB2.setToggleGroup(Payment);
 			
 			//Image Buttons (Just going to be lying around for now)
 			Text reccLabel        = new Text("  Recommendations: ");
@@ -157,29 +178,6 @@ public class Main extends Application
 	                });
 			//End of City Images
 			
-			//payment method
-			Label name           = new Label("\t Name : ");
-			TextField nameF      = new TextField();
-			Label nameERR        = new Label("");
-			Label phone	         = new Label("\t Phone Number: ");
-			TextField phoneF     = new TextField();
-			Label phoneERR       = new Label("");
-			Label email          = new Label("\t Email : ");
-			TextField emailF     = new TextField();
-			Label emailERR       = new Label("");
-			Label blank          = new Label ("");
-			Label pay			 = new Label ("\t Payment Method : ");
-			Label Card           = new Label ("\t Card Number : ");
-			TextField CardF      = new TextField();
-			Label help           = new Label("");
-		
-			ToggleGroup Payment = new ToggleGroup();
-			RadioButton RB1 = new RadioButton("Credit\t");
-			RadioButton RB2 = new RadioButton("Debit\t");
-			RB1.setToggleGroup(Payment);
-			RB2.setToggleGroup(Payment);
-			//RB3.setToggleGroup(Payment);
-			
 			Image EBG = new Image("https://i.pinimg.com/originals/11/5a/b4/115ab47f78bf3fce1f070b42e69168b3.jpg");
 			BackgroundImage OrangeBG = new BackgroundImage(EBG, null, null, null, null);
 			
@@ -204,6 +202,30 @@ public class Main extends Application
 			scr.setPrefViewportHeight(200);
 			reccs.setTop(reccLabel);
 			reccs.setBottom(scr);
+			
+			// Gridpane for contact info
+			GridPane contact = new GridPane();
+			
+			gridPane.add(name, 		     0, 0, 1, 1);
+		    	gridPane.add(nameF, 	     1, 0, 1, 1);
+		    	gridPane.add(nameERR,        2, 0, 1, 1);
+		    	gridPane.add(email, 	     0, 2, 1, 1);
+		    	gridPane.add(emailF, 	     1, 2, 1, 1);
+		    	gridPane.add(emailERR, 	     2, 2, 1, 1);
+		    	gridPane.add(blank, 	     0, 3, 1, 1);
+	        	gridPane.add(help,           1, 3, 1, 1);
+	        	gridPane.add(pay,            0, 3, 1, 1);
+		        gridPane.add(Card,           0, 4, 1, 1);
+		        gridPane.add(CardF,          1, 4, 1, 1);
+		    
+		   	 //Gridpane for payment
+		   	GridPane payGrid = new GridPane();
+		    	gridPane.add(payGrid, 	      1, 6, 1, 1);
+		   	payGrid.add(RB1,   0,  1);
+		    	payGrid.add(RB2,   0,  2);
+
+	        	payGrid.setVgap(10);
+	        	contact.setVgap(5);
 			
 			//Gridpane for Body
 			GridPane body = new GridPane();
