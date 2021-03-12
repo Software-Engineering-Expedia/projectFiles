@@ -20,6 +20,8 @@ import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import javafx.scene.control.ScrollPane;
+
 
 
 public class Main extends Application 
@@ -32,7 +34,7 @@ public class Main extends Application
 		try {
 			primaryStage.setTitle("Expedia");
 			primaryStage.setWidth(1000);
-			primaryStage.setHeight(750);
+			primaryStage.setHeight(600);
 	        
 	        TextArea ta = new TextArea();
 	        ta.setEditable(false);
@@ -140,19 +142,21 @@ public class Main extends Application
 			
 			//Gridpane for Buttons
 			GridPane gridPane = new GridPane();
+			ScrollPane scr = new ScrollPane();
 			gridPane.add(buttonI1,	   0, 0, 1, 1);
 			gridPane.add(buttonI2,     1, 0, 1, 1); 		
 			gridPane.add(buttonI3,     2, 0, 1, 1);
+			scr.setContent(gridPane);
 			
 			//Gridpane for Body
 			GridPane body = new GridPane();
 			body.add(startLoc,    0, 0);
 			body.add(num1TF,   1, 0);
-			body.add(endLoc,    3, 0);
-			body.add(num2TF,   4, 0);
+			body.add(endLoc,    0, 1);
+			body.add(num2TF,   1, 1);
 			//body.add(answerL,  0, 2);
 			//body.add(answerTF, 1, 2);
-			body.add(findTimes, 5, 0);
+			body.add(findTimes, 5, 5);
 			body.add(imageE, 6, 12, 1, 1);
 			
 			//DepartTimes
@@ -166,7 +170,7 @@ public class Main extends Application
 	        bp.setTop(clock);
 	        bp.setCenter(body);
 	        bp.setRight(left);
-	        bp.setBottom(gridPane);
+	        bp.setBottom(scr);
 	        refreshClock();
 	        
 			Scene scene = new Scene(bp);
