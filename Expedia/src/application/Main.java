@@ -19,6 +19,7 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.scene.control.ScrollPane;
@@ -65,7 +66,7 @@ public class Main extends Application
 			
 			Button findTimes = new Button("FIND TIMES");
 			findTimes.setPrefHeight(34);
-			findTime.setStyle("-fx-font-family: Impact");
+			findTimes.setStyle("-fx-font-family: Impact");
 			findTimes.setOnAction(new EventHandler<ActionEvent>()
 	        {
 	            @Override public void handle(ActionEvent e)
@@ -75,7 +76,9 @@ public class Main extends Application
 	        });
 			
 			//Image Buttons (Just going to be lying around for now)
-			Label reccLabel        = new Label("  Recommendations: ");
+			Text reccLabel        = new Text("  Recommendations: ");
+			reccLabel.setStyle("-fx-font-size: 200");
+			reccLabel.setStyle("-fx-font-weight: bold");
 			
 			Image miamiPic = new Image("https://grist.org/wp-content/uploads/2017/08/miami.jpg");
 			ImageView imageMI = new ImageView(miamiPic);
@@ -185,19 +188,22 @@ public class Main extends Application
 			
 			
 			//Gridpane for Buttons
+			BorderPane reccs = new BorderPane();
 			GridPane gridPane = new GridPane();
 			ScrollPane scr = new ScrollPane();
-			gridPane.add(reccLabel,	     0, 0, 1, 1);
+			//gridPane.add(reccLabel,	     0, 0, 1, 1);
 			gridPane.add(buttonI1,	     0, 1, 1, 1);
 			gridPane.add(buttonI2,       1, 1, 1, 1); 		
 			gridPane.add(buttonI3,       2, 1, 1, 1);
 			gridPane.add(buttonTokyo,    0, 2, 1, 1);
 			gridPane.add(buttonAtlantis, 1, 2, 1, 1); 		
 			gridPane.add(buttonLondon,   2, 2, 1, 1);
-			gridPane.setStyle("-fx-background-color:#eeeefe; -fx-opacity:1;");
+			gridPane.setStyle("-fx-background-color:#FFFF00; -fx-opacity:1;");
 			scr.setContent(gridPane);
 			scr.setPrefViewportWidth(10);
 			scr.setPrefViewportHeight(200);
+			reccs.setTop(reccLabel);
+			reccs.setBottom(scr);
 			
 			//Gridpane for Body
 			GridPane body = new GridPane();
@@ -228,7 +234,7 @@ public class Main extends Application
 	        bp.setTop(clock);
 	        bp.setCenter(body);
 	        bp.setRight(right);
-	        bp.setBottom(scr);
+	        bp.setBottom(reccs);
 	        refreshClock();
 	        
 			Scene scene = new Scene(bp);
