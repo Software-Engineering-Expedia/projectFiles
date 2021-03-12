@@ -184,17 +184,17 @@ public class Main extends Application
 			// Gridpane for contact info
 			GridPane contact = new GridPane();
 			
-			gridPane.add(name, 		     0, 0, 1, 1);
-		    	gridPane.add(nameF, 	     1, 0, 1, 1);
-		    	gridPane.add(nameERR,        2, 0, 1, 1);
-		    	gridPane.add(email, 	     0, 2, 1, 1);
-		    	gridPane.add(emailF, 	     1, 2, 1, 1);
-		    	gridPane.add(emailERR, 	     2, 2, 1, 1);
-		    	gridPane.add(blank, 	     0, 3, 1, 1);
-	        	gridPane.add(help,           1, 3, 1, 1);
-			gridPane.add(pay,            0, 6, 1, 1);
-		        gridPane.add(Card,           0, 4, 1, 1);
-		        gridPane.add(CardF,          1, 4, 1, 1);
+			contact.add(name, 		     0, 0, 1, 1);
+		    	contact.add(nameF, 	     1, 0, 1, 1);
+		    	contact.add(nameERR,        2, 0, 1, 1);
+		    	contact.add(email, 	     0, 2, 1, 1);
+		    	contact.add(emailF, 	     1, 2, 1, 1);
+		    	contact.add(emailERR, 	     2, 2, 1, 1);
+		    	contact.add(blank, 	     0, 3, 1, 1);
+	        	contact.add(help,           1, 3, 1, 1);
+			contact.add(pay,            0, 6, 1, 1);
+		        contact.add(Card,           0, 4, 1, 1);
+		        contact.add(CardF,          1, 4, 1, 1);
 		    
 		   	 //Gridpane for payment
 		   	GridPane payGrid = new GridPane();
