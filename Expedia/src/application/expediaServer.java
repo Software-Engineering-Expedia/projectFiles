@@ -54,10 +54,10 @@ public class expediaServer extends Application
 			el.printStackTrace();
 		}
 		
-		stage.setTitle("Simple Socket Server JAVA FX Rev 5.0   :   Rel Date  :  March 8, 2021    9:00 PM        " + 
+		stage.setTitle("Expedia Socket Server JAVA FX   :        " + 
 	                   "IP : " + ipAddress.getHostAddress() + "     Port# : 3333");
-		stage.setWidth(1400);
-		stage.setHeight(800);
+		stage.setWidth(800);
+		stage.setHeight(600);
 		
 		
 		//
@@ -65,8 +65,8 @@ public class expediaServer extends Application
 		//
 		clock = new TextArea();
 		clock.setEditable(false);
-		clock.setPrefHeight(30);
-		clock.setPrefWidth(900);
+		clock.setPrefHeight(40);
+		clock.setPrefWidth(500);
 		
 		
 		// available text area
@@ -85,6 +85,8 @@ public class expediaServer extends Application
 		GridPane.setHalignment(gridPane_1, HPos.CENTER); // To align horizontally in the cell
 		GridPane.setValignment(gridPane_1, VPos.CENTER); // To align vertically in the cell
 		gridPane_1.setStyle("-fx-background-color:#ffdc64; -fx-opacity:1;");
+
+		
 		
 		
 		// main area for socket server to display messages
@@ -92,21 +94,21 @@ public class expediaServer extends Application
 		textArea.setFont(Font.font("Verdana", 18));
 		textArea.setEditable(false);
 		textArea.setPrefHeight(80);
-		textArea.setPrefWidth(300);
+		textArea.setPrefWidth(200);
 				
 				
 		// available text area
 		textArea_3 = new TextArea();
 		textArea_3.setEditable(false);
 		textArea_3.setPrefHeight(80);
-		textArea_3.setPrefWidth(300);
+		textArea_3.setPrefWidth(200);
 		
 		
 		// area for IP addresses of clients who connect to the socket server
 		textArea_2 = new TextArea();
 		textArea_2.setEditable(false);
 		textArea_2.setPrefHeight(80);
-		textArea_2.setPrefWidth(900);
+		textArea_2.setPrefWidth(500);
 		
 		
 		//
@@ -155,8 +157,8 @@ public class expediaServer extends Application
 			}
 		});
 		
-		Button showLog = new Button("Show Log");
-		showLog.setOnAction(new EventHandler<ActionEvent>()
+		Button logData = new Button("Log Data");
+		logData.setOnAction(new EventHandler<ActionEvent>()
 		{
 			@Override
 		 	public void handle(ActionEvent e)
@@ -207,15 +209,6 @@ public class expediaServer extends Application
 			}
 		});
 		
-		Button summary = new Button("Summary");
-		summary.setOnAction(new EventHandler<ActionEvent>()
-		{
-			@Override
-		 	public void handle(ActionEvent e)
-		 	{
-		
-			}
-		});
 		
 		Button newKiosk = new Button("New Kiosk");
 		newKiosk.setOnAction(new EventHandler<ActionEvent>()
@@ -319,8 +312,7 @@ public class expediaServer extends Application
 	    hb.setSpacing(80);
 		hb.getChildren().addAll(exitButton, 
 				                   clients, 
-				                   showLog, 
-				                   summary, 
+				                   logData, 
 				                  newKiosk, 
 				                    query1, 
 				                    query2, 
@@ -377,7 +369,7 @@ public class expediaServer extends Application
 	
   
   /*
-   * Thread to update weather info for NYC and Boston    
+   * Time Updates
    */     
   private void startRealTimeClock()
   {	
@@ -385,19 +377,18 @@ public class expediaServer extends Application
 	   {
 		  public void run()
 		  {   
-			 clock.setFont(Font.font("Verdana", 14));
+			 clock.setFont(Font.font("Arial", 14));
 			 
 			 while (true)
 			 {	 			      
 				   Date date = new Date();
 				   String str = String.format("    %tc", date);
 					 
-				   clock.setText("");
-				   clock.setText(str);
+				   clock.setText("Expedia " + str);
 				   
 			    	try
 				    {
-					   sleep(5000L);
+					   sleep(1000L);
 				    }
 				    catch (InterruptedException e)
 				   {
