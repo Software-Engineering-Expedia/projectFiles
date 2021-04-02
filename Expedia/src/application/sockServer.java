@@ -76,7 +76,7 @@ public class sockServer implements Runnable
 	     try 
 	     {
 		     InetAddress ipAddress = InetAddress.getLocalHost();
-		     sss5.textArea.appendText("IP Address : " + ipAddress.getHostAddress() + newline);
+		     expediaServer.textArea.appendText("IP Address : " + ipAddress.getHostAddress() + newline);
 	     }
 	     catch (UnknownHostException e1)
 	     {
@@ -84,7 +84,7 @@ public class sockServer implements Runnable
 		    e1.printStackTrace();
 	     }
 	 
-	     sss5.textArea.appendText("Listening on port " + port_num + newline);
+	     expediaServer.textArea.appendText("Listening on port " + port_num + newline);
 	 
 	     //
 	     // initialize the hash table to the following keys or if file hash table data exists, then use it
@@ -133,7 +133,7 @@ public class sockServer implements Runnable
          	    
          	     
                  int currentSize     = clients.size();
-         	     sss5.textArea_3.setText("Total# : " + currentSize + newline);
+         	     expediaServer.textArea_3.setText("Total# : " + currentSize + newline);
          	    
          	     clients.put("totalKiosk", new kiosk("totalKiosk",
 		    	               transCount,
@@ -166,7 +166,7 @@ public class sockServer implements Runnable
          	     
          	     
          	     int currentSize     = clients.size();
-        	     sss5.textArea_3.setText("Total# : " + currentSize + newline);
+        	     expediaServer.textArea_3.setText("Total# : " + currentSize + newline);
         	     
          	     clients.put("totalKiosk", new kiosk("totalKiosk",
 		    	               transCount,
@@ -196,7 +196,7 @@ public class sockServer implements Runnable
 		    }
 		 
 		    // update the status text area to show progress of program
-	        sss5.textArea.appendText("Client Connected : " + sock.getInetAddress() + newline);
+	        expediaServer.textArea.appendText("Client Connected : " + sock.getInetAddress() + newline);
 	        
 	        //
 	        // start a NEW THREAD process
@@ -231,8 +231,8 @@ public class sockServer implements Runnable
 					long finish = System.nanoTime();
 					
 					long timeElapsed = finish - start;
-					sss5.textArea_3.appendText(" Time Nano-Seconds : " + timeElapsed + newline);
-					sss5.textArea_3.appendText("Time Milli-Seconds : " + timeElapsed / 1000000 + newline);
+					expediaServer.textArea_3.appendText(" Time Nano-Seconds : " + timeElapsed + newline);
+					expediaServer.textArea_3.appendText("Time Milli-Seconds : " + timeElapsed / 1000000 + newline);
 					
 					if (clients.containsKey("totalKiosk") == true)
 					{
@@ -330,7 +330,7 @@ public class sockServer implements Runnable
 	      
 	      numOfConnections++;
 	      
-	      sss5.textArea.appendText("Num of Connections = " + numOfConnections + newline);
+	      expediaServer.textArea.appendText("Num of Connections = " + numOfConnections + newline);
 	      
 	      keyString = ipString + ":" + threadId;
 	      
@@ -339,15 +339,15 @@ public class sockServer implements Runnable
 	    	    int counter = 0;
 	        	vec.addElement(keyString);
 	        	
-	        	sss5.textArea_2.setText("");
+	        	expediaServer.textArea_2.setText("");
 	        	Enumeration<String> en = vec.elements();
 	        	while (en.hasMoreElements())
 	        	{
-	        		sss5.textArea_2.appendText(en.nextElement() + " || ");
+	        		expediaServer.textArea_2.appendText(en.nextElement() + " || ");
 	        		
 	        		if (++counter >= 6)
 	        		{
-	        			sss5.textArea_2.appendText("\r\n");
+	        			expediaServer.textArea_2.appendText("\r\n");
 	        			counter = 0;
 	        		}
 	        	}
@@ -367,14 +367,14 @@ public class sockServer implements Runnable
 	              // write to transaction log
 	              //
 	              fileIO transLog = new fileIO();
-	              //transLog.wrTransactionData("SERVER : " + clientString);
+	              /////////////transLog.wrTransactionData("SERVER : " + clientString);
 	              
 	              	              
 	              // update the status text area to show progress of program
-	   	           sss5.textArea.appendText("RECV : " + clientString + newline);
+	   	           expediaServer.textArea.appendText("RECV : " + clientString + newline);
 	     	       
 	     	       // update the status text area to show progress of program
-	     	       sss5.textArea.appendText("RLEN : " + clientString.length() + newline);
+	     	       expediaServer.textArea.appendText("RLEN : " + clientString.length() + newline);
 	              
 	              if (clientString.length() > 128)
 	              {
@@ -475,20 +475,20 @@ public class sockServer implements Runnable
 	        	int counter = 0;
 	        	vec.removeElement(keyString);
 	        	
-	        	sss5.textArea_2.setText("");
+	        	expediaServer.textArea_2.setText("");
 	        	Enumeration<String> en = vec.elements();
 	        	while (en.hasMoreElements())
 	        	{        		     		
-                    sss5.textArea_2.appendText(en.nextElement() + " || ");
+                    expediaServer.textArea_2.appendText(en.nextElement() + " || ");
 	        		
 	        		if (++counter >= 6)
 	        		{
-	        			sss5.textArea_2.appendText("\r\n");
+	        			expediaServer.textArea_2.appendText("\r\n");
 	        			counter = 0;
 	        		}
 	        	}
 
-  	            //sss5.textArea_2.repaint();
+  	            //expediaServer.textArea_2.repaint();
 	        }
 	      
 	        numOfConnections--;
@@ -497,37 +497,37 @@ public class sockServer implements Runnable
 	        csocket.close();
 	       
 	        // update the status text area to show progress of program
-		     sss5.textArea.appendText("Child Thread : " + threadId + " : is Exiting!!!" + newline);
-		     sss5.textArea.appendText("Num of Connections = " + numOfConnections);
+		     expediaServer.textArea.appendText("Child Thread : " + threadId + " : is Exiting!!!" + newline);
+		     expediaServer.textArea.appendText("Num of Connections = " + numOfConnections);
 		     
 	     } // end try  
 	 
 	     catch (SocketException e)
 	     {
 		  // update the status text area to show progress of program
-	      sss5.textArea.appendText("ERROR : Socket Exception!" + newline);
+	      expediaServer.textArea.appendText("ERROR : Socket Exception!" + newline);
 	     }
 	     catch (InterruptedException e)
 	     {
 		  // update the status text area to show progress of program
-	      sss5.textArea.appendText("ERROR : Interrupted Exception!" + newline);
+	      expediaServer.textArea.appendText("ERROR : Interrupted Exception!" + newline);
 	     }
 	     catch (UnknownHostException e)
 	     {
 		  // update the status text area to show progress of program
-	      sss5.textArea.appendText("ERROR : Unkonw Host Exception" + newline);
+	      expediaServer.textArea.appendText("ERROR : Unkonw Host Exception" + newline);
 	     }
 	     catch (IOException e) 
 	     {
 	     // update the status text area to show progress of program
-	      sss5.textArea.appendText("ERROR : IO Exception!" + newline);
+	      expediaServer.textArea.appendText("ERROR : IO Exception!" + newline);
 	     }     
 	     catch (Exception e)
 	     { 
 		  numOfConnections--;
 		  
 		  // update the status text area to show progress of program
-	      sss5.textArea.appendText("ERROR : Generic Exception!" + newline);
+	      expediaServer.textArea.appendText("ERROR : Generic Exception!" + newline);
 	     }
 	   
 	  }  // end run() thread method

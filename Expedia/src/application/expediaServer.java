@@ -24,7 +24,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-public class sss5 extends Application 
+public class expediaServer extends Application 
 {
 	// global variables
 	public static TextArea textArea;
