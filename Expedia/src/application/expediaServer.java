@@ -2,6 +2,7 @@ package application;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.net.InetAddress;
@@ -12,13 +13,20 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -28,7 +36,7 @@ public class expediaServer extends Application
 {
 	// global variables
 	public static TextArea textArea;
-	public static TextArea textArea_1;
+	public static GridPane gridPane_1;
 	public static TextArea textArea_2;
 	public static TextArea textArea_3;
 	TextArea               clock;
@@ -62,10 +70,21 @@ public class expediaServer extends Application
 		
 		
 		// available text area
-		textArea_1 = new TextArea();
-		textArea_1.setEditable(false);
-		textArea_1.setPrefHeight(80);
-		textArea_1.setPrefWidth(300);
+		gridPane_1 = new GridPane();
+		gridPane_1.setPrefHeight(80);
+		gridPane_1.setPrefWidth(300);
+		Image EXP = new Image("https://i.ibb.co/qJmYSkv/expedia-logo.png");
+		ImageView imageE = new ImageView(EXP);
+		//imageE.setFitHeight(80);
+		imageE.setFitWidth(290);
+		imageE.setPreserveRatio(true);
+		gridPane_1.add(imageE,0,0);
+		//Label expedia = new Label("Expedia");
+		//gridPane_1.add(expedia, 0, 1);
+		gridPane_1.setAlignment(Pos.CENTER);
+		GridPane.setHalignment(gridPane_1, HPos.CENTER); // To align horizontally in the cell
+		GridPane.setValignment(gridPane_1, VPos.CENTER); // To align vertically in the cell
+		gridPane_1.setStyle("-fx-background-color:#ffdc64; -fx-opacity:1;");
 		
 		
 		// main area for socket server to display messages
@@ -320,7 +339,7 @@ public class expediaServer extends Application
 		//
 		BorderPane bp = new BorderPane();
 		bp.setTop(clock);
-		bp.setLeft(textArea_1);
+		bp.setLeft(gridPane_1);
 		bp.setCenter(textArea);
 		bp.setRight(textArea_3);
 		bp.setBottom(vb);
