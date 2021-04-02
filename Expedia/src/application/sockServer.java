@@ -166,7 +166,7 @@ public class sockServer implements Runnable
          	     
          	     
          	     int currentSize     = clients.size();
-        	     expediaServer.textArea_3.setText("Total# : " + currentSize + newline);
+        	     expediaServer.ta.setText("" + currentSize);
         	     
          	     clients.put("totalKiosk", new kiosk("totalKiosk",
 		    	               transCount,

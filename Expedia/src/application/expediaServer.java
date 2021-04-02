@@ -38,7 +38,9 @@ public class expediaServer extends Application
 	public static TextArea textArea;
 	public static GridPane gridPane_1;
 	public static TextArea textArea_2;
-	public static TextArea textArea_3;
+	public static VBox gridPane_3;
+	public static TextArea textArea_3 = new TextArea();
+	public static TextArea ta = new TextArea();
 	TextArea               clock;
 	
 	@Override
@@ -72,11 +74,11 @@ public class expediaServer extends Application
 		// available text area
 		gridPane_1 = new GridPane();
 		gridPane_1.setPrefHeight(80);
-		gridPane_1.setPrefWidth(300);
+		gridPane_1.setPrefWidth(250);
 		Image EXP = new Image("https://i.ibb.co/qJmYSkv/expedia-logo.png");
 		ImageView imageE = new ImageView(EXP);
 		//imageE.setFitHeight(80);
-		imageE.setFitWidth(290);
+		imageE.setFitWidth(245);
 		imageE.setPreserveRatio(true);
 		gridPane_1.add(imageE,0,0);
 		//Label expedia = new Label("Expedia");
@@ -98,10 +100,24 @@ public class expediaServer extends Application
 				
 				
 		// available text area
-		textArea_3 = new TextArea();
-		textArea_3.setEditable(false);
-		textArea_3.setPrefHeight(80);
-		textArea_3.setPrefWidth(200);
+		gridPane_3 = new VBox();
+		gridPane_3.setPrefHeight(80);
+		gridPane_3.setPrefWidth(250);
+		Label clientAct = new Label("Client Activity: ");
+		gridPane_3.getChildren().add(clientAct);
+		gridPane_3.setSpacing(10);
+		gridPane_3.getChildren().add(textArea_3);
+		HBox hbox = new HBox();
+		Label clientNum = new Label("Number of Clients: ");
+		hbox.getChildren().add(clientNum);
+		ta.setPrefWidth(10);
+		ta.setPrefHeight(10);
+		ta.setEditable(false);
+		hbox.getChildren().add(ta);
+		gridPane_3.getChildren().add(hbox);
+		gridPane_3.setStyle("-fx-background-color:#ffdc64; -fx-opacity:1;");
+		
+		
 		
 		
 		// area for IP addresses of clients who connect to the socket server
@@ -333,7 +349,7 @@ public class expediaServer extends Application
 		bp.setTop(clock);
 		bp.setLeft(gridPane_1);
 		bp.setCenter(textArea);
-		bp.setRight(textArea_3);
+		bp.setRight(gridPane_3);
 		bp.setBottom(vb);
 		
 		// start all threads  for the GUI screen here
