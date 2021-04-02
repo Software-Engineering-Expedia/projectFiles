@@ -356,19 +356,18 @@ public class expediaServer extends Application
 	   {
 		  public void run()
 		  {   
-			 clock.setFont(Font.font("Verdana", 14));
+			 clock.setFont(Font.font("Arial", 14));
 			 
 			 while (true)
 			 {	 			      
 				   Date date = new Date();
 				   String str = String.format("    %tc", date);
 					 
-				   clock.setText("");
-				   clock.setText(str);
+				   clock.setText("Expedia " + str);
 				   
 			    	try
 				    {
-					   sleep(5000L);
+					   sleep(1000L);
 				    }
 				    catch (InterruptedException e)
 				   {
