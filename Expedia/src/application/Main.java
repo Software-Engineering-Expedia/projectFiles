@@ -3,10 +3,12 @@ package application;
 import java.util.Date;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -30,6 +32,8 @@ public class Main extends Application
 {
 	double total=0;
 	TextArea clock;
+	int    numOfItems=0;
+	
 	@Override
 	public void start(Stage primaryStage) 
 	{
@@ -99,6 +103,85 @@ public class Main extends Application
 		RadioButton RB2 = new RadioButton("Debit\t");
 		RB1.setToggleGroup(Payment);
 		RB2.setToggleGroup(Payment);
+		
+		
+		Button submitButton    = new Button("SUBMIT");     
+        submitButton.setOnAction(new EventHandler<ActionEvent>() 
+        {
+            @Override public void handle(ActionEvent e)
+            {
+            	Platform.runLater(new Runnable() 
+				 {
+				        public void run() 
+				        {
+				        	String rs=null;
+				            socketUtils su = new socketUtils();
+				            
+				            if (su.socketConnect() == true) //this always seems to be false for whatever reason
+				            {
+				            	String strDouble = String.format("%.2f", total);
+				            	String msg = "Transaction>kiosk#001" + "," + numOfItems + "," + strDouble;
+            	                su.sendMessage(msg);				            	
+            	                String ackOrNack = su.recvMessage();
+            	                
+            	                
+            	                msg = "quit";
+            	                su.sendMessage(msg);
+            	                rs = su.recvMessage();
+            	                
+            	                
+            	                //
+            	                // close the socket connection
+            	                //
+            	                su.closeSocket();
+            	                
+            	                // 
+            	                // write to transaction log
+            	                //
+            	                msg = "CLIENT : Transaction>kiosk#001" + "," + numOfItems + "," + strDouble;
+            	                fileIO trans = new fileIO();
+            	                trans.wrTransactionData(msg);
+            	                
+            	                
+            	                // initialize variables back to zero
+            	                total=0.0;
+            	                numOfItems=0;        
+            	                
+            	                ta.setText("");
+            	                ta2.setText("");
+            	                
+            	                if (ackOrNack.startsWith("ACK") == true)
+            	                {
+            	                	ta2.setText("Success!    Message was received and processed by the Socket Server!");
+            	                }
+            	                else
+            	                {
+            	                   ta2.setText("RECV : " + ackOrNack);
+            	                   ta2.appendText(rs);
+            	                }
+				            }
+				            else
+				            {
+				            	// 
+            	                // write to transaction log
+            	                //
+				            	String strDouble = String.format("%.2f", total);
+            	                String msg = "CLIENT NETWORK ERROR : Transaction>kiosk#001" + "," + numOfItems + "," + strDouble;
+            	                
+            	                fileIO trans = new fileIO();
+            	                trans.wrTransactionData(msg);
+            	                
+            	                
+				            	Alert alert = new Alert(Alert.AlertType.ERROR);
+						        alert.setTitle("--- Network Communications Error ---");
+						        alert.setHeaderText("Unable to talk to Socket Server!");
+						          
+						        alert.showAndWait();
+				            }
+				        }
+				    });	
+            }
+        });
 			
 			//Image Buttons (Just going to be lying around for now)
 			Text reccLabel        = new Text("  Recommendations: ");
@@ -227,6 +310,7 @@ public class Main extends Application
 			gridPane.add(payGrid, 	      3, 3, 1, 1);
 			payGrid.add(RB1,   0,  1);
 			payGrid.add(RB2,   0,  2);
+			payGrid.add(submitButton, 0, 3);
 
 			payGrid.setVgap(10);
 			contact.setVgap(5);

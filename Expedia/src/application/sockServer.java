@@ -367,7 +367,7 @@ public class sockServer implements Runnable
 	              // write to transaction log
 	              //
 	              fileIO transLog = new fileIO();
-	              /////////////transLog.wrTransactionData("SERVER : " + clientString);
+	              transLog.wrTransactionData("SERVER : " + clientString);
 	              
 	              	              
 	              // update the status text area to show progress of program
