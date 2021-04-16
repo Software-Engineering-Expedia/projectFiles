@@ -105,83 +105,7 @@ public class Main extends Application
 		RB2.setToggleGroup(Payment);
 		
 		
-		Button submitButton    = new Button("SUBMIT");     
-        submitButton.setOnAction(new EventHandler<ActionEvent>() 
-        {
-            @Override public void handle(ActionEvent e)
-            {
-            	Platform.runLater(new Runnable() 
-				 {
-				        public void run() 
-				        {
-				        	String rs=null;
-				            socketUtils su = new socketUtils();
-				            
-				            if (su.socketConnect() == true) //this always seems to be false for whatever reason
-				            {
-				            	String strDouble = String.format("%.2f", total);
-				            	String msg = "Transaction>kiosk#001" + "," + numOfItems + "," + strDouble;
-            	                su.sendMessage(msg);				            	
-            	                String ackOrNack = su.recvMessage();
-            	                
-            	                
-            	                msg = "quit";
-            	                su.sendMessage(msg);
-            	                rs = su.recvMessage();
-            	                
-            	                
-            	                //
-            	                // close the socket connection
-            	                //
-            	                su.closeSocket();
-            	                
-            	                // 
-            	                // write to transaction log
-            	                //
-            	                msg = "CLIENT : Transaction>kiosk#001" + "," + numOfItems + "," + strDouble;
-            	                fileIO trans = new fileIO();
-            	                trans.wrTransactionData(msg);
-            	                
-            	                
-            	                // initialize variables back to zero
-            	                total=0.0;
-            	                numOfItems=0;        
-            	                
-            	                ta.setText("");
-            	                ta2.setText("");
-            	                
-            	                if (ackOrNack.startsWith("ACK") == true)
-            	                {
-            	                	ta2.setText("Success!    Message was received and processed by the Socket Server!");
-            	                }
-            	                else
-            	                {
-            	                   ta2.setText("RECV : " + ackOrNack);
-            	                   ta2.appendText(rs);
-            	                }
-				            }
-				            else
-				            {
-				            	// 
-            	                // write to transaction log
-            	                //
-				            	String strDouble = String.format("%.2f", total);
-            	                String msg = "CLIENT NETWORK ERROR : Transaction>kiosk#001" + "," + numOfItems + "," + strDouble;
-            	                
-            	                fileIO trans = new fileIO();
-            	                trans.wrTransactionData(msg);
-            	                
-            	                
-				            	Alert alert = new Alert(Alert.AlertType.ERROR);
-						        alert.setTitle("--- Network Communications Error ---");
-						        alert.setHeaderText("Unable to talk to Socket Server!");
-						          
-						        alert.showAndWait();
-				            }
-				        }
-				    });	
-            }
-        });
+		
 			
 			//Image Buttons (Just going to be lying around for now)
 			Text reccLabel        = new Text("  Recommendations: ");
@@ -304,7 +228,92 @@ public class Main extends Application
 			contact.add(pay,            2, 3, 1, 1);
 			contact.add(Card,           0, 4, 1, 1);
 			contact.add(CardF,          1, 4, 1, 1);
-					    
+			
+			Button submitButton    = new Button("SUBMIT");     
+	        submitButton.setOnAction(new EventHandler<ActionEvent>() 
+	        {
+	            @Override public void handle(ActionEvent e)
+	            {
+	            	Platform.runLater(new Runnable() 
+					 {
+					        public void run() 
+					        {
+					        	String rs=null;
+					            socketUtils su = new socketUtils();
+					            
+					            if (su.socketConnect() == true) //this always seems to be false for whatever reason
+					            {
+					            	String strDouble = String.format("%.2f", total);
+					            	String msg = "Transaction>kiosk#001" + "," + numOfItems + "," + strDouble;
+	            	                su.sendMessage(msg);				            	
+	            	                String ackOrNack = su.recvMessage();
+	            	                
+	            	                String msg1 = "Name: " + nameF.getText();
+	            	                su.sendMessage(msg1);
+	            	                msg1 = "Email: " + emailF.getText();
+	            	                su.sendMessage(msg1);
+	            	                msg1 = "Card #: "+ CardF.getText();
+	            	                su.sendMessage(msg1);
+	            	                
+	            	                
+	            	                msg = "quit";
+	            	                su.sendMessage(msg);
+	            	                rs = su.recvMessage();
+	            	                
+	            	                
+	            	                //
+	            	                // close the socket connection
+	            	                //
+	            	                su.closeSocket();
+	            	                
+	            	                // 
+	            	                // write to transaction log
+	            	                //
+	            	                msg = "CLIENT : Transaction>kiosk#001" + "," + numOfItems + "," + strDouble;
+	            	                fileIO trans = new fileIO();
+	            	                trans.wrTransactionData(msg);
+	            	                
+	            	                
+	            	                // initialize variables back to zero
+	            	                total=0.0;
+	            	                numOfItems=0;        
+	            	                
+	            	                ta.setText("");
+	            	                ta2.setText("");
+	            	                
+	            	                if (ackOrNack.startsWith("ACK") == true)
+	            	                {
+	            	                	ta2.setText("Success!    Message was received and processed by the Socket Server!");
+	            	                }
+	            	                else
+	            	                {
+	            	                   ta2.setText("RECV : " + ackOrNack);
+	            	                   ta2.appendText(rs);
+	            	                }
+					            }
+					            else
+					            {
+					            	// 
+	            	                // write to transaction log
+	            	                //
+					            	String strDouble = String.format("%.2f", total);
+	            	                String msg = "CLIENT NETWORK ERROR : Transaction>kiosk#001" + "," + numOfItems + "," + strDouble;
+	            	                
+	            	                fileIO trans = new fileIO();
+	            	                trans.wrTransactionData(msg);
+	            	                
+	            	                
+					            	Alert alert = new Alert(Alert.AlertType.ERROR);
+							        alert.setTitle("--- Network Communications Error ---");
+							        alert.setHeaderText("Unable to talk to Socket Server!");
+							          
+							        alert.showAndWait();
+					            }
+					        }
+					    });	
+	            }
+	        });
+			
 			//Gridpane for payment
 			GridPane payGrid = new GridPane();
 			gridPane.add(payGrid, 	      3, 3, 1, 1);

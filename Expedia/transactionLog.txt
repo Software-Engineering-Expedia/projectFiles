@@ -21,3 +21,39 @@
 04-08-2021 23.54.32 : SERVER : Transaction>kiosk#001,0,0.00
 04-08-2021 23.54.33 : SERVER : quit
 04-08-2021 23.54.33 : CLIENT : Transaction>kiosk#001,0,0.00
+04-16-2021 12.06.58 : SERVER : Transaction>kiosk#001,0,0.00
+04-16-2021 12.06.59 : SERVER : quit
+04-16-2021 12.06.59 : CLIENT : Transaction>kiosk#001,0,0.00
+04-16-2021 12.08.08 : SERVER : Transaction>kiosk#001,0,0.00
+04-16-2021 12.08.09 : SERVER : quit
+04-16-2021 12.08.09 : CLIENT : Transaction>kiosk#001,0,0.00
+04-16-2021 12.10.18 : SERVER : Transaction>kiosk#001,0,0.00
+04-16-2021 12.10.19 : SERVER : quit
+04-16-2021 12.10.19 : CLIENT : Transaction>kiosk#001,0,0.00
+04-16-2021 12.34.56 : SERVER : Transaction>kiosk#001,0,0.00
+04-16-2021 12.34.56 : SERVER : hibyechai
+04-16-2021 12.34.56 : CLIENT : Transaction>kiosk#001,0,0.00
+04-16-2021 12.34.57 : SERVER : quit
+04-16-2021 12.40.54 : SERVER : Transaction>kiosk#001,0,0.00
+04-16-2021 12.40.54 : SERVER : ya yeetyoot
+04-16-2021 12.40.54 : CLIENT : Transaction>kiosk#001,0,0.00
+04-16-2021 12.40.55 : SERVER : quit
+04-16-2021 12.43.59 : SERVER : Transaction>kiosk#001,0,0.00
+04-16-2021 12.43.59 : SERVER : 
+04-16-2021 12.43.59 : CLIENT : Transaction>kiosk#001,0,0.00
+04-16-2021 12.44.00 : SERVER : Name: bill
+04-16-2021 12.44.00 : SERVER :  Phone #: 
+04-16-2021 12.44.01 : SERVER :  Email:nye/n Card #: 133
+04-16-2021 12.44.01 : SERVER : quit
+04-16-2021 12.46.45 : SERVER : Transaction>kiosk#001,0,0.00
+04-16-2021 12.46.46 : SERVER : 
+04-16-2021 12.46.46 : CLIENT : Transaction>kiosk#001,0,0.00
+04-16-2021 12.46.46 : SERVER : Name: Fed
+04-16-2021 12.46.47 : SERVER : Email: fread@hotmail.com/nCard #: 1111
+04-16-2021 12.46.47 : SERVER : quit
+04-16-2021 12.51.28 : SERVER : Transaction>kiosk#001,0,0.00
+04-16-2021 12.51.28 : SERVER : Name: Mom
+04-16-2021 12.51.28 : CLIENT : Transaction>kiosk#001,0,0.00
+04-16-2021 12.51.29 : SERVER : Email: Ya
+04-16-2021 12.51.29 : SERVER : Card #: Juice
+04-16-2021 12.51.30 : SERVER : quit

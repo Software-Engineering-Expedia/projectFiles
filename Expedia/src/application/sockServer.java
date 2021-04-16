@@ -371,7 +371,7 @@ public class sockServer implements Runnable
 	              
 	              	              
 	              // update the status text area to show progress of program
-	   	           expediaServer.textArea.appendText("RECV : " + clientString + newline);
+	   	           expediaServer.textArea_3.appendText("RECV : " + clientString + newline);
 	     	       
 	     	       // update the status text area to show progress of program
 	     	       expediaServer.textArea.appendText("RLEN : " + clientString.length() + newline);
