@@ -57,7 +57,20 @@ public class Main extends Application
 	        clock.setEditable(false);
 	        clock.setPrefHeight(30);   
 	        clock.setPrefWidth(900);
+		
+		//DepartTimes
+		GridPane right = new GridPane();
+		Label lb1        = new Label("Depart Times:                         "
+					+ "       ");
+		TextArea times = new TextArea();
+	        times.setEditable(false);
+	        times.setPrefHeight(300);   
+	        times.setPrefWidth(30);
+		times.setText("Waiting for Input");
+		right.add(lb1, 0, 0);
+		right.add(times, 0, 1);
 	        
+		
 	        //body
 	        Label startLoc        = new Label(" Starting Location: ");
 		startLoc.setStyle("-fx-font-weight: bold");
@@ -78,8 +91,9 @@ public class Main extends Application
 	            	String strSTA = num1TF.getText();
 	            	String strEND = num2TF.getText();
 	            	
-	            	fileIO locLog = new fileIO();
-	            	locLog.writeToFile(strSTA, strEND);
+			times.setText("11:30 AM\n12:20 PM\n1:15 PM\n3:00 PM");
+	            	//fileIO locLog = new fileIO();
+	            	//locLog.writeToFile(strSTA, strEND);
 	            }
 	        });
 		//payment method
@@ -338,18 +352,6 @@ public class Main extends Application
 			body.add(payGrid, 1, 2);
 
 			
-			
-			//DepartTimes
-			GridPane right = new GridPane();
-			Label lb1        = new Label("Depart Times:                         "
-					+ "       ");
-			TextArea times = new TextArea();
-	        times.setEditable(false);
-	        times.setPrefHeight(300);   
-	        times.setPrefWidth(30);
-			times.setText("//Times will be here");
-			right.add(lb1, 0, 0);
-			right.add(times, 0, 1);
 			
 			
 			BorderPane bp = new BorderPane();
