@@ -135,7 +135,7 @@ public class Main extends Application
 	                {
 	                    @Override public void handle(ActionEvent e)
 	                    {
-	            	        
+	            	        times.setText("7:30 AM\n1:20 PM\n3:15 PM");
 	                    }
 	                });
 			
@@ -148,7 +148,7 @@ public class Main extends Application
 	                {
 	                    @Override public void handle(ActionEvent e)
 	                    {
-	            	        
+	            	        times.setText("8:25 AM\n10:10 AM");
 	                    }
 	                });
 			
@@ -161,7 +161,7 @@ public class Main extends Application
 	                {
 	                    @Override public void handle(ActionEvent e)
 	                    {
-	            	        
+	            	        times.setText("2:15 PM\n6:00 PM");
 	                    }
 	                });
 			
@@ -170,11 +170,11 @@ public class Main extends Application
 			Button buttonTokyo = new Button ("    Tokyo    ", imageTokyo);
 			imageTokyo.setFitWidth(160);
 			imageTokyo.setFitHeight(160);
-			buttonI3.setOnAction(new EventHandler<ActionEvent>()
+			buttonTokyo.setOnAction(new EventHandler<ActionEvent>()
 	                {
 	                    @Override public void handle(ActionEvent e)
 	                    {
-	            	        
+	            	        times.setText("1:15 PM\n10:30 PM");
 	                    }
 	                });
 			Image atlantisPic = new Image("https://thumbor.forbes.com/thumbor/fit-in/1200x0/filters%3Aformat%28jpg%29/https%3A%2F%2Fblogs-images.forbes.com%2Fdavidanderson%2Ffiles%2F2018%2F12%2Fatlantis-aquaman-1200x633.jpeg");
@@ -182,11 +182,11 @@ public class Main extends Application
 			Button buttonAtlantis = new Button ("    Atlantis    ", imageAtlantis);
 			imageAtlantis.setFitWidth(160);
 			imageAtlantis.setFitHeight(160);
-			buttonI3.setOnAction(new EventHandler<ActionEvent>()
+			buttonAtlantis.setOnAction(new EventHandler<ActionEvent>()
 	                {
 	                    @Override public void handle(ActionEvent e)
 	                    {
-	            	        
+	            	        times.setText("9:30 AM\n12:40 PM\n4:55 PM");
 	                    }
 	                });
 			Image londonPic = new Image("https://www.visitbritain.com/sites/default/files/styles/consumer_hero_image_mobile/public/consumer_components_enhanced/header_image/london-skyline-vb34141642.jpg");
@@ -194,11 +194,11 @@ public class Main extends Application
 			Button buttonLondon = new Button ("    London    ", imageLondon);
 			imageLondon.setFitWidth(160);
 			imageLondon.setFitHeight(160);
-			buttonI3.setOnAction(new EventHandler<ActionEvent>()
+			buttonLondon.setOnAction(new EventHandler<ActionEvent>()
 	                {
 	                    @Override public void handle(ActionEvent e)
 	                    {
-	            	        
+	            	        times.setText("11:50 AM");
 	                    }
 	                });
 			//End of City Images
