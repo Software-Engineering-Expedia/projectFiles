@@ -221,7 +221,7 @@ public class Main extends Application
 			gridPane.add(buttonTokyo,    0, 2, 1, 1);
 			gridPane.add(buttonAtlantis, 1, 2, 1, 1); 		
 			gridPane.add(buttonLondon,   2, 2, 1, 1);
-			gridPane.setStyle("-fx-background-color:#FFFF00; -fx-opacity:1;");
+			gridPane.setStyle("-fx-background-color:#Ffe48b; -fx-opacity:1;");
 			scr.setContent(gridPane);
 			scr.setPrefViewportWidth(10);
 			scr.setPrefViewportHeight(200);
