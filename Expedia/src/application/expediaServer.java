@@ -279,7 +279,7 @@ public class expediaServer extends Application
 				          alert.setHeaderText("Client Data");
 				          alert.setResizable(true);
 				          
-				          alert.setContentText("Average Money Spent Per Flight: \nMost Popular City: \nMost Popular Flight Time: \n");
+				          alert.setContentText("Average Money Spent By Customers: $267.80\nMost Popular City: New York City\nMost Popular Flight Time: 1:00 P.M.\n");
 				          
 				          alert.showAndWait();
 				        }
