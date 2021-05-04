@@ -163,13 +163,26 @@ public class expediaServer extends Application
 		});
 		
 		
-		Button clients = new Button("Clients");
-		clients.setOnAction(new EventHandler<ActionEvent>()
+		Button transdata = new Button("Transaction Data");
+		transdata.setOnAction(new EventHandler<ActionEvent>()
 		{
 			@Override
 		 	public void handle(ActionEvent e)
 		 	{
-		
+				Platform.runLater(new Runnable() 
+				 {
+				        public void run() 
+				        {
+				          Alert alert = new Alert(Alert.AlertType.INFORMATION);
+				          alert.setTitle("--- Transactions ---");
+				          alert.setHeaderText("Transaction History");
+				          alert.setResizable(true);
+				          
+				          alert.setContentText(textArea_3.getText() + "\n");
+				          
+				          alert.showAndWait();
+				        }
+				    });
 			}
 		});
 		
@@ -330,7 +343,7 @@ public class expediaServer extends Application
 		hb.setPadding(new Insets(15, 12, 15, 12));
 	    hb.setSpacing(80);
 		hb.getChildren().addAll(exitButton, 
-				                   clients, 
+				                   transdata, 
 				                   logData, 
 				                  newKiosk, 
 				                    stracker, 
