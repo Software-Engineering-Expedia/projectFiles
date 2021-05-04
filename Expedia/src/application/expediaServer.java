@@ -40,6 +40,7 @@ public class expediaServer extends Application
 	public static TextArea textArea_2;
 	public static VBox gridPane_3;
 	public static TextArea textArea_3 = new TextArea();
+	public static TextArea textArea_4 = new TextArea();
 	public static TextArea ta = new TextArea();
 	TextArea               clock;
 	
@@ -178,7 +179,7 @@ public class expediaServer extends Application
 				          alert.setHeaderText("Transaction History");
 				          alert.setResizable(true);
 				          
-				          alert.setContentText(textArea_3.getText());
+				          alert.setContentText(textArea_4.getText());
 				          
 				          alert.showAndWait();
 				        }
