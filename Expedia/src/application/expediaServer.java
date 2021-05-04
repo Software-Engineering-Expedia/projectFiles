@@ -178,7 +178,7 @@ public class expediaServer extends Application
 				          alert.setHeaderText("Transaction History");
 				          alert.setResizable(true);
 				          
-				          alert.setContentText(textArea_3.getText() + "\n");
+				          alert.setContentText(textArea_3.getText());
 				          
 				          alert.showAndWait();
 				        }
