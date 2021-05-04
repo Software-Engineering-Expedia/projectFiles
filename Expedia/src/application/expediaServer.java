@@ -58,8 +58,8 @@ public class expediaServer extends Application
 		
 		stage.setTitle("Expedia Socket Server JAVA FX   :        " + 
 	                   "IP : " + ipAddress.getHostAddress() + "     Port# : 3333");
-		stage.setWidth(800);
-		stage.setHeight(600);
+		stage.setWidth(1000);
+		stage.setHeight(700);
 		
 		
 		//
@@ -250,23 +250,26 @@ public class expediaServer extends Application
 			}
 		});
 		
-		Button query1 = new Button("Query #1");
-		query1.setOnAction(new EventHandler<ActionEvent>()
+		Button stracker = new Button("Stat Tracker");
+		stracker.setOnAction(new EventHandler<ActionEvent>()
 		{
 			@Override
 		 	public void handle(ActionEvent e)
 		 	{
-		
-			}
-		});
-		
-		Button query2 = new Button("Query #2");
-		query2.setOnAction(new EventHandler<ActionEvent>()
-		{
-			@Override
-		 	public void handle(ActionEvent e)
-		 	{
-		
+				Platform.runLater(new Runnable() 
+				 {
+				        public void run() 
+				        {
+				          Alert alert = new Alert(Alert.AlertType.INFORMATION);
+				          alert.setTitle("--- Stat Tracker ---");
+				          alert.setHeaderText("Client Data");
+				          alert.setResizable(true);
+				          
+				          alert.setContentText("Average Money Spent Per Flight: \nMost Popular City: \nMost Popular Flight Time: \n");
+				          
+				          alert.showAndWait();
+				        }
+				    });
 			}
 		});
 		
@@ -330,8 +333,7 @@ public class expediaServer extends Application
 				                   clients, 
 				                   logData, 
 				                  newKiosk, 
-				                    query1, 
-				                    query2, 
+				                    stracker, 
 				                    query3,
 				               helpButton);
 		
