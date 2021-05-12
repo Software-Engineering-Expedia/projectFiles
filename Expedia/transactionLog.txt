@@ -99,3 +99,19 @@
 05-12-2021 00.20.46 : SERVER : Email: Bill
 05-12-2021 00.20.46 : SERVER : Card #: bill@10029.com
 05-12-2021 00.20.47 : SERVER : quit
+05-12-2021 14.01.34 : SERVER : Transaction>kiosk#001,0,0.00
+05-12-2021 14.01.34 : SERVER : Name: ef
+05-12-2021 14.01.34 : CLIENT : Transaction>kiosk#001,0,0.00
+05-12-2021 14.01.35 : SERVER : Starting Location: New York City
+05-12-2021 14.01.35 : SERVER : Ending Location: Los Angeles
+05-12-2021 14.01.36 : SERVER : Email: eeff
+05-12-2021 14.01.36 : SERVER : Card #: dwa
+05-12-2021 14.01.36 : SERVER : Transaction>kiosk#001,0,0.00
+05-12-2021 14.01.37 : SERVER : quit
+05-12-2021 14.01.37 : SERVER : Name: ef
+05-12-2021 14.01.37 : CLIENT : Transaction>kiosk#001,0,0.00
+05-12-2021 14.01.37 : SERVER : Starting Location: New York City
+05-12-2021 14.01.38 : SERVER : Ending Location: Los Angeles
+05-12-2021 14.01.38 : SERVER : Email: eeff
+05-12-2021 14.01.39 : SERVER : Card #: dwa
+05-12-2021 14.01.40 : SERVER : quit

@@ -1,6 +1,7 @@
 package application;
 	
 import java.util.Date;
+import java.util.Optional;
 
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -10,14 +11,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
@@ -27,7 +20,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import javafx.scene.control.ScrollPane;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.*;
@@ -64,17 +56,17 @@ public class Main extends Application
 	        clock.setPrefHeight(30);   
 	        clock.setPrefWidth(900);
 		
-		//DepartTimes
-		GridPane right = new GridPane();
-		Label lb1        = new Label("Depart Times:                         "
-					+ "       ");
-		TextArea times = new TextArea();
-	        times.setEditable(false);
-	        times.setPrefHeight(300);   
-	        times.setPrefWidth(30);
-		times.setText("Waiting for Input");
-		right.add(lb1, 0, 0);
-		right.add(times, 0, 1);
+			//DepartTimes
+			GridPane right = new GridPane();
+			Label lb1        = new Label("Depart Times:                         "
+						+ "       ");
+			TextArea times = new TextArea();
+		        times.setEditable(false);
+		        times.setPrefHeight(300);   
+		        times.setPrefWidth(30);
+			times.setText("Waiting for Input");
+			right.add(lb1, 0, 0);
+			right.add(times, 0, 1);
 	        
 		
 	        //body
@@ -278,10 +270,50 @@ public class Main extends Application
 	        {
 	            @Override public void handle(ActionEvent e)
 	            {
+	            	
 	            	Platform.runLater(new Runnable() 
 					 {
 					        public void run() 
 					        {
+					        	if (nameF.getText().isEmpty() || startLocTF.getValue()== null || endLocTF.getValue()== null || emailF.getText().isEmpty() 
+					        			|| CardF.getText().isEmpty()) {
+					        		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+							           
+							           alert.setTitle("Incomplete Data");
+							           if(startLocTF.getValue() == null) {
+							        	   alert.setHeaderText("Starting Location Cannot Be Empty");
+								           alert.setContentText("Please fill in your starting location.");
+							           }
+							           else if(nameF.getText().isEmpty()) {
+								           alert.setHeaderText("Name Field Cannot Be Empty");
+								           alert.setContentText("Please fill in your name.");
+							           }
+							           else if(endLocTF.getValue() == null) {
+							        	   alert.setHeaderText("Ending Location Cannot Be Empty");
+								           alert.setContentText("Please fill in your desired ending location.");
+							           }
+							           else if(emailF.getText().isEmpty()) {
+							        	   alert.setHeaderText("Email Field Cannot Be Empty");
+								           alert.setContentText("Please fill in your email address.");
+							           }
+							           else if(CardF.getText().isEmpty()) {
+							        	   alert.setHeaderText("Card Field Cannot Be Empty");
+								           alert.setContentText("Please fill in your card number.");
+							           }
+							           Optional<ButtonType> result = alert.showAndWait();
+							           
+							           if (result.get() == ButtonType.OK)
+							           {
+								         
+							           }
+							           else 
+							           {
+							               // ... user chose CANCEL or closed the dialog
+							           }
+					        	}
+					        	
+					            	
+					        	else {
 					        	String rs=null;
 					            socketUtils su = new socketUtils();
 					            
@@ -357,9 +389,11 @@ public class Main extends Application
 							          
 							        alert.showAndWait();
 					            }
+					        	}
 					        }
 					    });	
 	            }
+	          
 	        });
 			
 			//Gridpane for payment
