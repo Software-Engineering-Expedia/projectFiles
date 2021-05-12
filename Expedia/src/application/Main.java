@@ -32,13 +32,14 @@ public class Main extends Application
 	double total=0;
 	TextArea clock;
 	int    numOfItems=0;
+	String paymentChosen = " ";
 	
 	@Override
 	public void start(Stage primaryStage) 
 	{
 		try {
 			primaryStage.setTitle("Expedia");
-			primaryStage.setWidth(1100);
+			primaryStage.setWidth(1070);
 			primaryStage.setHeight(600);
 	        
 	        TextArea ta = new TextArea();
@@ -85,21 +86,25 @@ public class Main extends Application
 				    "Miami",
 				    "New York City",
 				    "Los Angeles",
+				    "Nairobi",
 				    "Tokyo",
 				    "Atlantis",
-				    "London"
+				    "London",
+				    "Paris"
 				);
 			
 			startLocTF.setEditable(true);
 			
 			ComboBox<String> endLocTF = new ComboBox<String>();
 			endLocTF.getItems().addAll(
-				    "Miami",
+					"Miami",
 				    "New York City",
 				    "Los Angeles",
+				    "Nairobi",
 				    "Tokyo",
 				    "Atlantis",
-				    "London"
+				    "London",
+				    "Paris"
 				);
 			
 			endLocTF.setEditable(true);
@@ -130,7 +135,7 @@ public class Main extends Application
 		TextField emailF     = new TextField();
 		Label emailERR       = new Label("");
 		Label blank          = new Label ("");
-		Label pay			 = new Label ("\t Payment Method : ");
+		Label pay			 = new Label ("\t Payment Method :  Select      ");
 		Label Card           = new Label ("\t Card Number : ");
 		TextField CardF      = new TextField();
 		Label help           = new Label("");
@@ -141,7 +146,22 @@ public class Main extends Application
 		RB1.setToggleGroup(Payment);
 		RB2.setToggleGroup(Payment);
 		
-		
+		Payment.selectedToggleProperty().addListener(new ChangeListener<Toggle>()  
+        { 
+            public void changed(ObservableValue<? extends Toggle> ob,  
+                                                    Toggle o, Toggle n) 
+            { 
+  
+                RadioButton rb = (RadioButton)Payment.getSelectedToggle(); 
+  
+                if (rb != null) { 
+                    String s = rb.getText(); 
+                    paymentChosen = s;
+                    // change the label 
+                    pay.setText("\t Payment Method : " + s); 
+                } 
+            } 
+        });
 		
 			
 			//Image Buttons (Just going to be lying around for now)
@@ -187,6 +207,18 @@ public class Main extends Application
 	            	        times.setText("2:15 PM\n6:00 PM");
 	                    }
 	                });
+			Image nairobiPic = new Image("https://cdn.audleytravel.com/4082/2913/79/8003731-nairobi.jpg");
+			ImageView imageNairobi = new ImageView(nairobiPic);
+			Button buttonNairobi = new Button ("    Nairobi    ", imageNairobi);
+			imageNairobi.setFitWidth(160);
+			imageNairobi.setFitHeight(160);
+			buttonI3.setOnAction(new EventHandler<ActionEvent>()
+	                {
+	                    @Override public void handle(ActionEvent e)
+	                    {
+	            	        times.setText("2:15 PM\n6:00 PM");
+	                    }
+	                });
 			
 			Image tokyoPic = new Image("https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/02/a0002533/img/basic/a0002533_main.jpg");
 			ImageView imageTokyo = new ImageView(tokyoPic);
@@ -212,11 +244,23 @@ public class Main extends Application
 	            	        times.setText("9:30 AM\n12:40 PM\n4:55 PM");
 	                    }
 	                });
-			Image londonPic = new Image("https://www.visitbritain.com/sites/default/files/styles/consumer_hero_image_mobile/public/consumer_components_enhanced/header_image/london-skyline-vb34141642.jpg");
+			Image londonPic = new Image("https://www.history.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTYyNDg1MjE3MTI1Mjc5Mzk4/topic-london-gettyimages-760251843-promo.jpg");
 			ImageView imageLondon = new ImageView(londonPic);
 			Button buttonLondon = new Button ("    London    ", imageLondon);
 			imageLondon.setFitWidth(160);
 			imageLondon.setFitHeight(160);
+			buttonLondon.setOnAction(new EventHandler<ActionEvent>()
+	                {
+	                    @Override public void handle(ActionEvent e)
+	                    {
+	            	        times.setText("11:50 AM");
+	                    }
+	                });
+			Image parisPic = new Image("https://images.adsttc.com/media/images/5d44/14fa/284d/d1fd/3a00/003d/large_jpg/eiffel-tower-in-paris-151-medium.jpg");
+			ImageView imageParis = new ImageView(parisPic);
+			Button buttonParis = new Button ("    Paris    ", imageParis);
+			imageParis.setFitWidth(160);
+			imageParis.setFitHeight(160);
 			buttonLondon.setOnAction(new EventHandler<ActionEvent>()
 	                {
 	                    @Override public void handle(ActionEvent e)
@@ -241,9 +285,11 @@ public class Main extends Application
 			gridPane.add(buttonI1,	     0, 1, 1, 1);
 			gridPane.add(buttonI2,       1, 1, 1, 1); 		
 			gridPane.add(buttonI3,       2, 1, 1, 1);
+			gridPane.add(buttonNairobi,       3, 1, 1, 1);
 			gridPane.add(buttonTokyo,    0, 2, 1, 1);
 			gridPane.add(buttonAtlantis, 1, 2, 1, 1); 		
 			gridPane.add(buttonLondon,   2, 2, 1, 1);
+			gridPane.add(buttonParis,   3, 2, 1, 1);
 			gridPane.setStyle("-fx-background-color:#Ffe48b; -fx-opacity:1;");
 			scr.setContent(gridPane);
 			scr.setPrefViewportWidth(10);
@@ -262,9 +308,12 @@ public class Main extends Application
 			contact.add(emailERR, 	     2, 2, 1, 1);
 			contact.add(blank, 	     0, 3, 1, 1);
 			contact.add(help,           1, 3, 1, 1);
-			contact.add(pay,            2, 3, 1, 1);
-			contact.add(Card,           0, 4, 1, 1);
-			contact.add(CardF,          1, 4, 1, 1);
+			contact.add(pay,            0, 3, 1, 1);
+			contact.add(Card,           0, 6, 1, 1);
+			contact.add(CardF,          1, 6, 1, 1);
+			contact.add(RB1, 1, 4, 1, 1);
+			contact.add(RB2, 1, 5, 1, 1);
+			
 			
 			Button submitButton    = new Button("SUBMIT");     
 	        submitButton.setOnAction(new EventHandler<ActionEvent>() 
@@ -332,6 +381,8 @@ public class Main extends Application
 	            	                msg1 = "Ending Location: "+ endLocTF.getValue();
 	            	                su.sendMessage(msg1);
 	            	                msg1 = "Email: " + emailF.getText();
+	            	                su.sendMessage(msg1);
+	            	                msg1 = "Payment Method: "+ paymentChosen;
 	            	                su.sendMessage(msg1);
 	            	                msg1 = "Card #: "+ CardF.getText();
 	            	                su.sendMessage(msg1);
@@ -418,13 +469,7 @@ public class Main extends Application
 	        });
 			
 			//Gridpane for payment
-			GridPane payGrid = new GridPane();
-			gridPane.add(payGrid, 	      3, 3, 1, 1);
-			payGrid.add(RB1,   0,  1);
-			payGrid.add(RB2,   0,  2);
-			payGrid.add(submitButton, 0, 3);
-
-			payGrid.setVgap(10);
+	        contact.add(submitButton, 1, 7, 1, 1);
 			contact.setVgap(5);
 			
 			//Gridpane for Body
@@ -438,7 +483,6 @@ public class Main extends Application
 			body.add(findTimes, 5, 0);
 			//body.add(imageE, 6, 12, 1, 1);
 			body.add(contact, 1, 1);
-			body.add(payGrid, 1, 2);
 
 			
 			
