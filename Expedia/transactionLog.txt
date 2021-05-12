@@ -115,3 +115,81 @@
 05-12-2021 14.01.38 : SERVER : Email: eeff
 05-12-2021 14.01.39 : SERVER : Card #: dwa
 05-12-2021 14.01.40 : SERVER : quit
+05-12-2021 14.47.07 : SERVER : Transaction>kiosk#001,0,0.00
+05-12-2021 14.47.07 : SERVER : Name: kjhg
+05-12-2021 14.47.08 : SERVER : Starting Location: New York City
+05-12-2021 14.47.08 : SERVER : Ending Location: Los Angeles
+05-12-2021 14.47.09 : SERVER : Email: njbhv
+05-12-2021 14.47.09 : SERVER : Card #: jnhg
+05-12-2021 14.47.10 : SERVER : quit
+05-12-2021 14.51.19 : SERVER : Transaction>kiosk#001,0,0.00
+05-12-2021 14.51.20 : SERVER : Name: kjhg
+05-12-2021 14.51.20 : SERVER : Starting Location: New York City
+05-12-2021 14.51.21 : SERVER : Ending Location: Los Angeles
+05-12-2021 14.51.21 : SERVER : Email: njbhv
+05-12-2021 14.51.22 : SERVER : Card #: jnhg
+05-12-2021 14.51.22 : SERVER : quit
+05-12-2021 15.09.27 : SERVER : Transaction>kiosk#001,0,0.00
+05-12-2021 15.09.28 : SERVER : Name: sc
+05-12-2021 15.09.29 : SERVER : Starting Location: Miami
+05-12-2021 15.09.29 : SERVER : Ending Location: Los Angeles
+05-12-2021 15.09.29 : CLIENT : Transaction>kiosk#001,0,0.00
+05-12-2021 15.09.30 : SERVER : Email: sc
+05-12-2021 15.09.30 : SERVER : Card #: sc
+05-12-2021 15.09.31 : SERVER : quit
+05-12-2021 15.11.23 : SERVER : Transaction>kiosk#001,0,0.00
+05-12-2021 15.11.24 : SERVER : Name: ef
+05-12-2021 15.11.24 : SERVER : Starting Location: Miami
+05-12-2021 15.11.25 : SERVER : Ending Location: Los Angeles
+05-12-2021 15.11.25 : CLIENT : Transaction>kiosk#001,0,0.00
+05-12-2021 15.11.25 : SERVER : Email: f
+05-12-2021 15.11.26 : SERVER : Card #: f
+05-12-2021 15.11.26 : SERVER : quit
+05-12-2021 15.16.12 : SERVER : Transaction>kiosk#001,0,0.00
+05-12-2021 15.16.13 : SERVER : Name: Yoo
+05-12-2021 15.16.13 : SERVER : Starting Location: New York City
+05-12-2021 15.16.13 : CLIENT : Transaction>kiosk#001,0,0.00
+05-12-2021 15.16.14 : SERVER : Ending Location: Los Angeles
+05-12-2021 15.16.14 : SERVER : Email: Yooooo
+05-12-2021 15.16.15 : SERVER : Card #: tahmed37@fordham.edu
+05-12-2021 15.16.15 : SERVER : quit
+05-12-2021 15.16.47 : SERVER : Transaction>kiosk#001,0,0.00
+05-12-2021 15.16.48 : SERVER : Name: Yoo
+05-12-2021 15.16.48 : SERVER : Starting Location: New York City
+05-12-2021 15.16.48 : CLIENT : Transaction>kiosk#001,0,0.00
+05-12-2021 15.16.49 : SERVER : Ending Location: Los Angeles
+05-12-2021 15.16.49 : SERVER : Email: Yooooo
+05-12-2021 15.16.50 : SERVER : Card #: tanvir10029@gmail.com
+05-12-2021 15.16.50 : SERVER : quit
+05-12-2021 15.20.04 : SERVER : Transaction>kiosk#001,0,0.00
+05-12-2021 15.20.05 : SERVER : Name: Tan
+05-12-2021 15.20.05 : SERVER : Starting Location: New York City
+05-12-2021 15.20.06 : SERVER : Ending Location: Tokyo
+05-12-2021 15.20.06 : CLIENT : Transaction>kiosk#001,0,0.00
+05-12-2021 15.20.06 : SERVER : Email: tanvir10029@gmail.com
+05-12-2021 15.20.07 : SERVER : Card #: sd
+05-12-2021 15.20.07 : SERVER : quit
+05-12-2021 15.22.43 : SERVER : Transaction>kiosk#001,0,0.00
+05-12-2021 15.22.43 : SERVER : Name: GH
+05-12-2021 15.22.44 : SERVER : Starting Location: New York City
+05-12-2021 15.22.44 : CLIENT : Transaction>kiosk#001,0,0.00
+05-12-2021 15.22.44 : SERVER : Ending Location: Los Angeles
+05-12-2021 15.22.45 : SERVER : Email: tahmed37@fordham.edu
+05-12-2021 15.22.45 : SERVER : Card #: x
+05-12-2021 15.22.46 : SERVER : quit
+05-12-2021 15.25.19 : SERVER : Transaction>kiosk#001,0,0.00
+05-12-2021 15.25.20 : SERVER : Name: Bob
+05-12-2021 15.25.20 : SERVER : Starting Location: Tube Land
+05-12-2021 15.25.21 : CLIENT : Transaction>kiosk#001,0,0.00
+05-12-2021 15.25.21 : SERVER : Ending Location: Yahooo World
+05-12-2021 15.25.21 : SERVER : Email: tanvir10029@gmail.com
+05-12-2021 15.25.22 : SERVER : Card #: 1234
+05-12-2021 15.25.22 : SERVER : quit
+05-12-2021 15.27.00 : SERVER : Transaction>kiosk#001,0,0.00
+05-12-2021 15.27.01 : SERVER : Name: HI
+05-12-2021 15.27.01 : SERVER : Starting Location: Tokyo
+05-12-2021 15.27.02 : SERVER : Ending Location: Los Angeles
+05-12-2021 15.27.02 : CLIENT : Transaction>kiosk#001,0,0.00
+05-12-2021 15.27.02 : SERVER : Email: tanvir10029@gmail.com
+05-12-2021 15.27.03 : SERVER : Card #: 33333
+05-12-2021 15.27.03 : SERVER : quit

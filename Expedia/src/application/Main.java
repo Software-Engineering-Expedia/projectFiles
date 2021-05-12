@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.*;
+import com.email.durgesh.Email;
 
 
 
@@ -339,6 +340,26 @@ public class Main extends Application
 	            	                msg = "quit";
 	            	                su.sendMessage(msg);
 	            	                rs = su.recvMessage();
+	            	                
+	            	                System.out.println("Sending email to " + emailF.getText());
+	            	                
+	            	                try{
+	            	                	Email email = new Email("tanvirthrowaway@gmail.com", "JavaFx@67");
+	            	                	email.setFrom("tanvirthrowaway@gmail.com", "Expedia SE Project");
+	            	                	email.setSubject("Test");
+	            	                	email.setContent("<h1>Thank You For Your Expedia Purchase!</h1>"
+	            	                			+ "<p>"
+	            	                			+ "Starting Location: "+ startLocTF.getValue() 
+	            	                			+ "<br>" + "Ending Location: "+ endLocTF.getValue()
+	            	                			+ "<br>" + "Email: " + emailF.getText()
+	            	                			+ "<br> Card #: "+ CardF.getText()
+	            	                			+ "</p>", "text/html");
+	            	                	email.addRecipient(emailF.getText());
+	            	                	email.send();
+	            	                	}
+	            	                catch (Exception e) {
+	            	            		e.printStackTrace();
+	            	            		}
 	            	                
 	            	                
 	            	                //
