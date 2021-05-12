@@ -4,12 +4,15 @@ import java.util.Date;
 
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
@@ -25,6 +28,9 @@ import javafx.scene.text.Text;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.scene.control.ScrollPane;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.scene.control.*;
 
 
 
@@ -73,13 +79,37 @@ public class Main extends Application
 		
 	        //body
 	        Label startLoc        = new Label(" Starting Location: ");
-		startLoc.setStyle("-fx-font-weight: bold");
-			TextField num1TF   = new TextField();
+	        startLoc.setStyle("-fx-font-weight: bold");
+			//TextField startLocTF   = new TextField();
 			Label endLoc        = new Label(" Ending Location: ");
 			endLoc.setStyle("-fx-font-weight: bold");
-			TextField num2TF   = new TextField();
+			//TextField endLocTF   = new TextField();
 			Label answerL      = new Label("Answer : ");
 			TextField answerTF = new TextField();
+			
+			ComboBox<String> startLocTF = new ComboBox<String>();
+			startLocTF.getItems().addAll(
+				    "Miami",
+				    "New York City",
+				    "Los Angeles",
+				    "Tokyo",
+				    "Atlantis",
+				    "London"
+				);
+			
+			startLocTF.setEditable(true);
+			
+			ComboBox<String> endLocTF = new ComboBox<String>();
+			endLocTF.getItems().addAll(
+				    "Miami",
+				    "New York City",
+				    "Los Angeles",
+				    "Tokyo",
+				    "Atlantis",
+				    "London"
+				);
+			
+			endLocTF.setEditable(true);
 			
 			Button findTimes = new Button("FIND TIMES");
 			findTimes.setPrefHeight(34);
@@ -88,8 +118,8 @@ public class Main extends Application
 	        {
 	            @Override public void handle(ActionEvent e)
 	            {
-	            	String strSTA = num1TF.getText();
-	            	String strEND = num2TF.getText();
+	            	String strSTA = startLocTF.getValue();
+	            	String strEND = endLocTF.getValue();
 	            	
 			times.setText("11:30 AM\n12:20 PM\n1:15 PM\n3:00 PM");
 	            	//fileIO locLog = new fileIO();
@@ -264,6 +294,10 @@ public class Main extends Application
 	            	                
 	            	                String msg1 = "Name: " + nameF.getText();
 	            	                su.sendMessage(msg1);
+	            	                msg1 = "Starting Location: "+ startLocTF.getValue();
+	            	                su.sendMessage(msg1);
+	            	                msg1 = "Ending Location: "+ endLocTF.getValue();
+	            	                su.sendMessage(msg1);
 	            	                msg1 = "Email: " + emailF.getText();
 	            	                su.sendMessage(msg1);
 	            	                msg1 = "Card #: "+ CardF.getText();
@@ -341,9 +375,9 @@ public class Main extends Application
 			//Gridpane for Body
 			GridPane body = new GridPane();
 			body.add(startLoc,    0, 0);
-			body.add(num1TF,   1, 0);
+			body.add(startLocTF,   1, 0);
 			body.add(endLoc,    3, 0);
-			body.add(num2TF,   4, 0);
+			body.add(endLocTF,   4, 0);
 			//body.add(answerL,  0, 2);
 			//body.add(answerTF, 1, 2);
 			body.add(findTimes, 5, 0);

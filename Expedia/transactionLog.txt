@@ -57,3 +57,45 @@
 04-16-2021 12.51.29 : SERVER : Email: Ya
 04-16-2021 12.51.29 : SERVER : Card #: Juice
 04-16-2021 12.51.30 : SERVER : quit
+05-10-2021 21.28.11 : SERVER : Transaction>kiosk#001,0,0.00
+05-10-2021 21.28.12 : SERVER : Name: Ysysys
+05-10-2021 21.28.12 : CLIENT : Transaction>kiosk#001,0,0.00
+05-10-2021 21.28.12 : SERVER : Email: windi@dnej
+05-10-2021 21.28.13 : SERVER : Card #: 1234
+05-10-2021 21.28.13 : SERVER : quit
+05-11-2021 23.52.32 : SERVER : Transaction>kiosk#001,0,0.00
+05-11-2021 23.52.32 : SERVER : Name: Yo
+05-11-2021 23.52.32 : CLIENT : Transaction>kiosk#001,0,0.00
+05-11-2021 23.52.33 : SERVER : Starting Location: ComboBox@7bd293a7[styleClass=combo-box-base combo-box]
+05-11-2021 23.52.33 : SERVER : Email: Mama
+05-11-2021 23.52.34 : SERVER : Card #: 1234
+05-11-2021 23.52.34 : SERVER : quit
+05-12-2021 00.00.40 : SERVER : Transaction>kiosk#001,0,0.00
+05-12-2021 00.00.40 : SERVER : Name: Yo
+05-12-2021 00.00.40 : CLIENT : Transaction>kiosk#001,0,0.00
+05-12-2021 00.00.41 : SERVER : Starting Location: ComboBox@7bd293a7[styleClass=combo-box-base combo-box]
+05-12-2021 00.00.41 : SERVER : Email: Mama
+05-12-2021 00.00.42 : SERVER : Card #: 1234
+05-12-2021 00.00.42 : SERVER : quit
+05-12-2021 00.05.31 : SERVER : Transaction>kiosk#001,0,0.00
+05-12-2021 00.05.32 : SERVER : Name: 
+05-12-2021 00.05.32 : CLIENT : Transaction>kiosk#001,0,0.00
+05-12-2021 00.05.32 : SERVER : Starting Location: New York City
+05-12-2021 00.05.33 : SERVER : Email: 
+05-12-2021 00.05.33 : SERVER : Card #: 
+05-12-2021 00.05.34 : SERVER : quit
+05-12-2021 00.10.50 : SERVER : Transaction>kiosk#001,0,0.00
+05-12-2021 00.10.51 : SERVER : Name: 
+05-12-2021 00.10.51 : CLIENT : Transaction>kiosk#001,0,0.00
+05-12-2021 00.10.51 : SERVER : Starting Location: YurtCity
+05-12-2021 00.10.52 : SERVER : Email: 
+05-12-2021 00.10.52 : SERVER : Card #: 
+05-12-2021 00.10.53 : SERVER : quit
+05-12-2021 00.20.44 : SERVER : Transaction>kiosk#001,0,0.00
+05-12-2021 00.20.44 : SERVER : Name: Bob
+05-12-2021 00.20.44 : CLIENT : Transaction>kiosk#001,0,0.00
+05-12-2021 00.20.45 : SERVER : Starting Location: New York City
+05-12-2021 00.20.45 : SERVER : Ending Location: Tokyo
+05-12-2021 00.20.46 : SERVER : Email: Bill
+05-12-2021 00.20.46 : SERVER : Card #: bill@10029.com
+05-12-2021 00.20.47 : SERVER : quit
