@@ -1,5 +1,8 @@
 package application;
 	
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.Date;
 import java.util.Optional;
 
@@ -707,7 +710,7 @@ public class Main extends Application
 					           
 					           alert.setTitle("Confirmation Dialog");
 					           alert.setHeaderText("EXIT confirmation dialog");
-					           alert.setContentText("Are you sure you want to exit this Socket Server Program?");
+					           alert.setContentText("Are you sure you want to exit this program");
 
 					           Optional<ButtonType> result = alert.showAndWait();
 					           
@@ -727,9 +730,9 @@ public class Main extends Application
 			
 			//Gridpane for payment
 	        	contact.add(submitButton, 1, 7, 1, 1);
-			contact.add(logData, 2, 8, 1, 1);
-			contact.add(helpButton, 3, 8, 1, 1);
-			contact.add(exitButton, 4, 8, 1, 1);
+			contact.add(logData, 0, 9, 1, 1);
+			contact.add(helpButton, 1, 9, 1, 1);
+			contact.add(exitButton, 2, 9, 1, 1);
 			contact.setVgap(5);
 			
 			//Gridpane for Body
