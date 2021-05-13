@@ -468,6 +468,33 @@ public class Main extends Application
 	          
 	        });
 		
+		Button helpButton = new Button("HELP");
+			helpButton.setOnAction(new EventHandler<ActionEvent>()
+			{
+				@Override
+			 	public void handle(ActionEvent e)
+			 	{
+					 Platform.runLater(new Runnable() 
+					 {
+					        public void run() 
+					        {
+					          Alert alert = new Alert(Alert.AlertType.INFORMATION);
+					          alert.setTitle("--- Ticket Kiosk Help Window ---");
+					          alert.setHeaderText("Help Screen");
+					          
+					          String hStr="- Starting Locations and Ending Locations can be chosen via a drop-down menu.\r\n" + 
+					        		      "- Click on FIND TIMES to get a list of Depart Times to choose from.\r\n" +
+					        		      "- Click on one of the Recommendations to purchase a great-value, preset package.\r\n" +
+					        		      "- Please fill out all forms before submitting for purchase.\r\n" +
+					        		      "- Click on SUBMIT to confirm a purchase.\r\n";
+					         
+					          alert.setContentText(hStr);
+					          alert.showAndWait();
+					        }
+					    });
+				}
+			});
+		
 		Button exitButton = new Button("EXIT");
 			exitButton.setOnAction(new EventHandler<ActionEvent>()
 			{
@@ -502,7 +529,8 @@ public class Main extends Application
 			
 			//Gridpane for payment
 	        	contact.add(submitButton, 1, 7, 1, 1);
-			contact.add(exitButton, 2, 8, 1, 1);
+			contact.add(helpButton, 2, 8, 1, 1);
+			contact.add(exitButton, 3, 8, 1, 1);
 			contact.setVgap(5);
 			
 			//Gridpane for Body
