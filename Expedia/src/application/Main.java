@@ -39,7 +39,7 @@ public class Main extends Application
 	{
 		try {
 			primaryStage.setTitle("Expedia");
-			primaryStage.setWidth(1070);
+			primaryStage.setWidth(1120);
 			primaryStage.setHeight(600);
 	        
 	        TextArea ta = new TextArea();
@@ -62,15 +62,28 @@ public class Main extends Application
 			GridPane right = new GridPane();
 			Label lb1        = new Label("Depart Times:                         "
 						+ "       ");
-			TextArea times = new TextArea();
-		        times.setEditable(false);
-		        times.setPrefHeight(300);   
-		        times.setPrefWidth(30);
-			times.setText("Waiting for Input");
+			right.setMinWidth(200);
+			right.setMaxWidth(200);
+			//TextArea times = new TextArea();
+			RadioButton times1 = new RadioButton();
+			RadioButton times2 = new RadioButton();
+			RadioButton times3 = new RadioButton();
+			TextArea waiting = new TextArea();
+		        //times.setEditable(false);
+		        times1.setPrefHeight(300);   
+		        times1.setPrefWidth(300);
+			waiting.setText("Waiting for input");
+			times2.setPrefHeight(300);   
+	        times2.setPrefWidth(300);
+	        times3.setPrefHeight(300);   
+	        times3.setPrefWidth(300);
 			right.add(lb1, 0, 0);
-			right.add(times, 0, 1);
-	        
-		
+			right.add(waiting, 0,1);
+			right.add(times1, 0, 2);
+			right.add(times2, 0, 3);
+			right.add(times3, 0, 4);
+			ToggleGroup Times = new ToggleGroup();
+			times1.setToggleGroup(Times);
 	        //body
 	        Label startLoc        = new Label(" Starting Location: ");
 	        startLoc.setStyle("-fx-font-weight: bold");
@@ -119,9 +132,21 @@ public class Main extends Application
 	            	String strSTA = startLocTF.getValue();
 	            	String strEND = endLocTF.getValue();
 	            	
-			times.setText("11:30 AM\n12:20 PM\n1:15 PM\n3:00 PM");
+	            	System.out.println(strEND);
+	            	if(strEND =="Miami")
+	            	{
+	            		//waiting.setText("Select One Time");
+	            		times1.setText("11:30 AM\n");
+	            		times2.setText("12:20 PM\n");
+	            		times3.setText("1:15 PM");
+	            	}
+	            	else
+	            	{
+	            		waiting.setText( "1");
+	            	}
 	            	//fileIO locLog = new fileIO();
 	            	//locLog.writeToFile(strSTA, strEND);
+				
 	            }
 	        });
 		//payment method
@@ -178,7 +203,22 @@ public class Main extends Application
 	                {
 	                    @Override public void handle(ActionEvent e)
 	                    {
-	            	        times.setText("7:30 AM\n1:20 PM\n3:15 PM");
+	                    	 Alert alert = new Alert(Alert.AlertType.INFORMATION);
+					           
+					           alert.setTitle("City Information");
+					           alert.setHeaderText("MIAMI");
+					           alert.setContentText("Coastal city located in southeastern Florida in the United States. It is the third most populous metropolis on the East coast of the United States, and it is the seventh largest in the country.");
+
+					           Optional<ButtonType> result = alert.showAndWait();
+					           
+					           if (result.get() == ButtonType.OK)
+					           {
+					        	   
+					           }
+					           else 
+					           {
+					               // ... user chose CANCEL or closed the dialog
+					           }
 	                    }
 	                });
 			
@@ -191,7 +231,22 @@ public class Main extends Application
 	                {
 	                    @Override public void handle(ActionEvent e)
 	                    {
-	            	        times.setText("8:25 AM\n10:10 AM");
+	                    	 Alert alert = new Alert(Alert.AlertType.INFORMATION);
+					           
+					           alert.setTitle("City Information");
+					           alert.setHeaderText("NEW YORK CITY");
+					           alert.setContentText(" Many of the city's landmarks, skyscrapers, and parks are known around the world. The Empire State Building has become the global standard of reference to describe the height and length of other structures");
+
+					           Optional<ButtonType> result = alert.showAndWait();
+					           
+					           if (result.get() == ButtonType.OK)
+					           {
+					        	   
+					           }
+					           else 
+					           {
+					               // ... user chose CANCEL or closed the dialog
+					           }
 	                    }
 	                });
 			
@@ -204,7 +259,22 @@ public class Main extends Application
 	                {
 	                    @Override public void handle(ActionEvent e)
 	                    {
-	            	        times.setText("2:15 PM\n6:00 PM");
+	                    	 Alert alert = new Alert(Alert.AlertType.INFORMATION);
+					           
+					           alert.setTitle("City Information");
+					           alert.setHeaderText("LOS ANGELES");
+					           alert.setContentText("Los Angeles is known for its Mediterranean climate, ethnic and cultural diversity, Hollywood entertainment industry, and its sprawling metropolitan area. ");
+
+					           Optional<ButtonType> result = alert.showAndWait();
+					           
+					           if (result.get() == ButtonType.OK)
+					           {
+					        	   
+					           }
+					           else 
+					           {
+					               // ... user chose CANCEL or closed the dialog
+					           }
 	                    }
 	                });
 			Image nairobiPic = new Image("https://cdn.audleytravel.com/4082/2913/79/8003731-nairobi.jpg");
@@ -212,11 +282,26 @@ public class Main extends Application
 			Button buttonNairobi = new Button ("    Nairobi    ", imageNairobi);
 			imageNairobi.setFitWidth(160);
 			imageNairobi.setFitHeight(160);
-			buttonI3.setOnAction(new EventHandler<ActionEvent>()
+			buttonNairobi.setOnAction(new EventHandler<ActionEvent>()
 	                {
 	                    @Override public void handle(ActionEvent e)
 	                    {
-	            	        times.setText("2:15 PM\n6:00 PM");
+	                    	 Alert alert = new Alert(Alert.AlertType.INFORMATION);
+					           
+					           alert.setTitle("City Information");
+					           alert.setHeaderText("NAIROBI");
+					           alert.setContentText("Home to thousands of Kenyan businesses and over 100 major international companies and organizations, including the United Nations Environment Programme (UN Environment) and the United Nations Office at Nairobi (UNON), Nairobi is an established hub for business and culture. ");
+
+					           Optional<ButtonType> result = alert.showAndWait();
+					           
+					           if (result.get() == ButtonType.OK)
+					           {
+					        	   
+					           }
+					           else 
+					           {
+					               // ... user chose CANCEL or closed the dialog
+					           }
 	                    }
 	                });
 			
@@ -229,7 +314,22 @@ public class Main extends Application
 	                {
 	                    @Override public void handle(ActionEvent e)
 	                    {
-	            	        times.setText("1:15 PM\n10:30 PM");
+	                    	 Alert alert = new Alert(Alert.AlertType.INFORMATION);
+					           
+					           alert.setTitle("City Information");
+					           alert.setHeaderText("TOKYO");
+					           alert.setContentText("As the largest population center in Japan and the site of the country's largest broadcasters and studios, Tokyo is frequently the setting for many Japanese movies, television shows, animated series (anime), web comics, light novels, video games, and comic books (manga). ");
+
+					           Optional<ButtonType> result = alert.showAndWait();
+					           
+					           if (result.get() == ButtonType.OK)
+					           {
+					        	   
+					           }
+					           else 
+					           {
+					               // ... user chose CANCEL or closed the dialog
+					           }
 	                    }
 	                });
 			Image atlantisPic = new Image("https://thumbor.forbes.com/thumbor/fit-in/1200x0/filters%3Aformat%28jpg%29/https%3A%2F%2Fblogs-images.forbes.com%2Fdavidanderson%2Ffiles%2F2018%2F12%2Fatlantis-aquaman-1200x633.jpeg");
@@ -241,7 +341,22 @@ public class Main extends Application
 	                {
 	                    @Override public void handle(ActionEvent e)
 	                    {
-	            	        times.setText("9:30 AM\n12:40 PM\n4:55 PM");
+	                    	 Alert alert = new Alert(Alert.AlertType.INFORMATION);
+					           
+					           alert.setTitle("City Information");
+					           alert.setHeaderText("ATLANTIS");
+					           alert.setContentText("Atlantis, Paradise Island is a lush, oceanside resort located on Paradise Island. A dynamic destination that launched over two decades ago as a first-of-its kind modern marvel of nature and engineering. ");
+
+					           Optional<ButtonType> result = alert.showAndWait();
+					           
+					           if (result.get() == ButtonType.OK)
+					           {
+					        	   
+					           }
+					           else 
+					           {
+					               // ... user chose CANCEL or closed the dialog
+					           }
 	                    }
 	                });
 			Image londonPic = new Image("https://www.history.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTYyNDg1MjE3MTI1Mjc5Mzk4/topic-london-gettyimages-760251843-promo.jpg");
@@ -253,7 +368,22 @@ public class Main extends Application
 	                {
 	                    @Override public void handle(ActionEvent e)
 	                    {
-	            	        times.setText("11:50 AM");
+	                    	 Alert alert = new Alert(Alert.AlertType.INFORMATION);
+					           
+					           alert.setTitle("City Information");
+					           alert.setHeaderText("LONDON");
+					           alert.setContentText("London is one of the world's most important global cities. It exerts a considerable impact upon the arts, commerce, education, entertainment, fashion, finance, healthcare, media, professional services, research and development, tourism and transportation ");
+
+					           Optional<ButtonType> result = alert.showAndWait();
+					           
+					           if (result.get() == ButtonType.OK)
+					           {
+					        	   
+					           }
+					           else 
+					           {
+					               // ... user chose CANCEL or closed the dialog
+					           }
 	                    }
 	                });
 			Image parisPic = new Image("https://images.adsttc.com/media/images/5d44/14fa/284d/d1fd/3a00/003d/large_jpg/eiffel-tower-in-paris-151-medium.jpg");
@@ -261,11 +391,26 @@ public class Main extends Application
 			Button buttonParis = new Button ("    Paris    ", imageParis);
 			imageParis.setFitWidth(160);
 			imageParis.setFitHeight(160);
-			buttonLondon.setOnAction(new EventHandler<ActionEvent>()
+			buttonParis.setOnAction(new EventHandler<ActionEvent>()
 	                {
 	                    @Override public void handle(ActionEvent e)
 	                    {
-	            	        times.setText("11:50 AM");
+	                    	 Alert alert = new Alert(Alert.AlertType.INFORMATION);
+					           
+					           alert.setTitle("City Information");
+					           alert.setHeaderText("PARIS");
+					           alert.setContentText("Since the 17th century, Paris has been one of Europe's major centres of finance, diplomacy, commerce, fashion, gastronomy, science and arts. The City of Paris is the centre and seat of government of the Île-de-France, or Paris Region, which has an estimated population of 12,174,880, or about 18 percent of the population of France as of 2017. ");
+
+					           Optional<ButtonType> result = alert.showAndWait();
+					           
+					           if (result.get() == ButtonType.OK)
+					           {
+					        	   
+					           }
+					           else 
+					           {
+					               // ... user chose CANCEL or closed the dialog
+					           }
 	                    }
 	                });
 			//End of City Images
@@ -467,9 +612,124 @@ public class Main extends Application
 	            }
 	          
 	        });
+		
+		Button logData = new Button("Log Data");
+			logData.setOnAction(new EventHandler<ActionEvent>()
+			{
+				@Override
+			 	public void handle(ActionEvent e)
+			 	{
+					Platform.runLater(new Runnable() 
+					 { 
+						    String logString = "";
+						    
+					        public void run() 
+					        {
+					        	try
+					            {
+					        	      File f = new File("transactionLog.txt");
+					        	      if (f.exists())
+					        	      {
+					                    FileReader reader = new FileReader("transactionLog.txt");
+					                    BufferedReader br = new BufferedReader(reader);
+					                  
+					                    String line = br.readLine();
+					                    while (line != null)
+					                    {
+					                    	logString = logString + line + "\r\n";
+					                    	line = br.readLine();
+					                    }
+					                    
+					                    br.close();
+					        	      }
+					        	      else
+					        	      {
+					        	    	  logString = "No log File Found!";
+					        	      }
+					        	 }
+					             catch(Exception e2)
+					             {   
+					        	    e2.printStackTrace(); 
+					             }		
+					        	
+					             Alert alert = new Alert(Alert.AlertType.INFORMATION);
+					             alert.setTitle("--- Ticket Kiosk ---");
+					             alert.setHeaderText("Transaction Log File");
+					          
+					             alert.setContentText(logString);
+					             alert.setWidth(300);
+					             alert.setHeight(600);
+					             alert.showAndWait();
+					        }
+					    });	
+				}
+			});
+		
+		Button helpButton = new Button("HELP");
+			helpButton.setOnAction(new EventHandler<ActionEvent>()
+			{
+				@Override
+			 	public void handle(ActionEvent e)
+			 	{
+					 Platform.runLater(new Runnable() 
+					 {
+					        public void run() 
+					        {
+					          Alert alert = new Alert(Alert.AlertType.INFORMATION);
+					          alert.setTitle("--- Ticket Kiosk Help Window ---");
+					          alert.setHeaderText("Help Screen");
+					          
+					          String hStr="- Starting Locations and Ending Locations can be chosen via a drop-down menu.\r\n" + 
+					        		      "- Click on FIND TIMES to get a list of Depart Times to choose from.\r\n" +
+					        		      "- Click on one of the Recommendations to purchase a great-value, preset package.\r\n" +
+					        		      "- Please fill out all forms before submitting for purchase.\r\n" +
+					        		      "- Click on SUBMIT to confirm a purchase.\r\n" +
+					        		      "- Click on LOG DATA to display current logs.\r\n";
+					         
+					          alert.setContentText(hStr);
+					          alert.showAndWait();
+					        }
+					    });
+				}
+			});
+		
+		Button exitButton = new Button("EXIT");
+			exitButton.setOnAction(new EventHandler<ActionEvent>()
+			{
+				@Override
+			 	public void handle(ActionEvent e)
+			 	{
+					Platform.runLater(new Runnable() 
+					 {
+					        public void run() 
+					        {
+					           Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+					           
+					           alert.setTitle("Confirmation Dialog");
+					           alert.setHeaderText("EXIT confirmation dialog");
+					           alert.setContentText("Are you sure you want to exit this Socket Server Program?");
+
+					           Optional<ButtonType> result = alert.showAndWait();
+					           
+					           if (result.get() == ButtonType.OK)
+					           {
+						           sockServer.writeHashTableData();
+						           System.exit(0);
+					           }
+					           else 
+					           {
+					               // ... user chose CANCEL or closed the dialog
+					           }
+					        }
+					    });	
+				}
+			});
 			
 			//Gridpane for payment
-	        contact.add(submitButton, 1, 7, 1, 1);
+	        	contact.add(submitButton, 1, 7, 1, 1);
+			contact.add(logData, 2, 8, 1, 1);
+			contact.add(helpButton, 3, 8, 1, 1);
+			contact.add(exitButton, 4, 8, 1, 1);
 			contact.setVgap(5);
 			
 			//Gridpane for Body

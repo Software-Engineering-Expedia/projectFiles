@@ -377,8 +377,10 @@ public class expediaServer extends Application
 				          alert.setHeaderText("Help Screen");
 				          
 				          String hStr="- Click on   EXIT   button to quit the socket server.\r\n" + 
-				        		      "- Click on   Show Log   to display current transaction log file.\r\n" +
+				        		      "- Click on   Transaction Data   to display current transaction history.\r\n" +
+				        		      "- Click on   Log Data   to display current logs.\r\n" +
 				        		      "- Click on   New Kiosk   to create the next ticket kiosk station.\r\n" +
+				        		      "- Click on   Stat Tracker   to display stat analyses.\r\n" +
 				                      "- Click on   LIST KIOSKS to display current status of kiosks.\r\n";
 				          
 				          alert.setContentText(hStr);
