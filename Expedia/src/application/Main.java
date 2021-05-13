@@ -36,6 +36,10 @@ public class Main extends Application
 	TextArea clock;
 	int    numOfItems=0;
 	String paymentChosen = " ";
+	String timeChosen = " ";
+	int cost1;
+	int cost2;
+	int cost3;
 	
 	@Override
 	public void start(Stage primaryStage) 
@@ -87,6 +91,26 @@ public class Main extends Application
 			right.add(times3, 0, 4);
 			ToggleGroup Times = new ToggleGroup();
 			times1.setToggleGroup(Times);
+			times2.setToggleGroup(Times);
+			times3.setToggleGroup(Times);
+			
+			Times.selectedToggleProperty().addListener(new ChangeListener<Toggle>()  
+	        { 
+	            public void changed(ObservableValue<? extends Toggle> ob,  
+	                                                    Toggle o, Toggle n) 
+	            { 
+	  
+	                RadioButton rb = (RadioButton)Times.getSelectedToggle(); 
+	  
+	                if (rb != null) { 
+	                    String s = rb.getText(); 
+	                    timeChosen = s;
+	                    // change the label 
+	                    
+	                } 
+	            } 
+	        });
+			
 	        //body
 	        Label startLoc        = new Label(" Starting Location: ");
 	        startLoc.setStyle("-fx-font-weight: bold");
@@ -109,7 +133,6 @@ public class Main extends Application
 				    "Paris"
 				);
 			
-			startLocTF.setEditable(true);
 			
 			ComboBox<String> endLocTF = new ComboBox<String>();
 			endLocTF.getItems().addAll(
@@ -123,7 +146,6 @@ public class Main extends Application
 				    "Paris"
 				);
 			
-			endLocTF.setEditable(true);
 			
 			Button findTimes = new Button("FIND TIMES");
 			findTimes.setPrefHeight(34);
@@ -132,16 +154,119 @@ public class Main extends Application
 	        {
 	            @Override public void handle(ActionEvent e)
 	            {
-	            	String strSTA = startLocTF.getValue();
-	            	String strEND = endLocTF.getValue();
-				waiting.setText("Select One Time");
-	            		times1.setText("11:30 AM - $150\n");
-	            		times2.setText("12:20 PM - $230\n");
-	            		times3.setText("1:15 PM - $275");
-
-	            	//fileIO locLog = new fileIO();
-	            	//locLog.writeToFile(strSTA, strEND);
-				
+	            	if (startLocTF.getValue()== null || endLocTF.getValue()== null) {
+		        		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+				           
+				           alert.setTitle("Incomplete Data");
+				           if(startLocTF.getValue() == null) {
+				        	   alert.setHeaderText("Starting Location Cannot Be Empty");
+					           alert.setContentText("Please fill in your starting location.");
+				           }
+				           
+				           else if(endLocTF.getValue() == null) {
+				        	   alert.setHeaderText("Ending Location Cannot Be Empty");
+					           alert.setContentText("Please fill in your desired ending location.");
+				           }
+				           
+				           Optional<ButtonType> result = alert.showAndWait();
+				           
+				           if (result.get() == ButtonType.OK)
+				           {
+					         
+				           }
+				           else 
+				           {
+				               // ... user chose CANCEL or closed the dialog
+				           }
+		        	}
+	            	else if(startLocTF.getValue().equals(endLocTF.getValue())) {
+	            		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+				           
+				           alert.setTitle("Error");
+				           alert.setHeaderText("Starting Location and Ending Location cannot Match");
+					       alert.setContentText("Please change starting or ending location.");
+				           
+				           Optional<ButtonType> result = alert.showAndWait();
+				           
+				           if (result.get() == ButtonType.OK)
+				           {
+					         
+				           }
+				           else 
+				           {
+				               // ... user chose CANCEL or closed the dialog
+				           }
+	            	}
+	            	else {
+		            	String strSTA = startLocTF.getValue();
+		            	String strEND = endLocTF.getValue();
+		            	//System.out.println(strEND);
+		            	if(strEND.equals("Miami"))
+		            	{  		
+		            		waiting.setText("Select One Time");
+		            		times1.setText("11:30 AM - $150;\n");
+		            		times2.setText("12:20 PM - $230;\n");
+		            		times3.setText("1:15 PM - $275;");
+		            	}
+		            	else if(strEND.equals("New York City"))
+		            	{  		
+		            		waiting.setText("Select One Time");
+		            		times1.setText("10:30 AM - $750;\n");
+		            		times2.setText("1:50 PM - $400;\n");
+		            		times3.setText("3:15 PM - $600;");
+		            	}
+		            	else if(strEND.equals("Los Angeles"))
+		            	{  		
+		            		waiting.setText("Select One Time");
+		            		times1.setText("9:30 AM - $350;\n");
+		            		times2.setText("2:30 PM - $440;\n");
+		            		times3.setText("4:45 PM - $705;");
+		            	}
+		            	else if(strEND.equals("Nairobi"))
+		            	{  		
+		            		waiting.setText("Select One Time");
+		            		times1.setText("8:30 AM - $780;\n");
+		            		times2.setText("9:56 AM - $210;\n");
+		            		times3.setText("7:45 PM - $655;");
+		            	}
+		            	else if(strEND.equals("Tokyo"))
+		            	{  		
+		            		waiting.setText("Select One Time");
+		            		times1.setText("12:30 AM - $200;\n");
+		            		times2.setText("4:30 AM - $420;\n");
+		            		times3.setText("12:45 PM - $775;");
+		            	}
+		            	else if(strEND.equals("Atlantis"))
+		            	{  		
+		            		waiting.setText("Select One Time");
+		            		times1.setText("3:30 AM - $290;\n");
+		            		times2.setText("5:00 AM - $520;\n");
+		            		times3.setText("3:45 PM - $666;");
+		            	}
+		            	else if(strEND.equals("London"))
+		            	{  		
+		            		waiting.setText("Select One Time");
+		            		times1.setText("6:30 AM - $120;\n");
+		            		times2.setText("7:00 PM - $530;\n");
+		            		times3.setText("11:45 PM - $230;");
+		            	}
+		            	else
+		            	{
+		            		waiting.setText("Select One Time");
+		            		times1.setText("4:30 AM - $800;\n");
+		            		times2.setText("5:00 PM - $500;\n");
+		            		times3.setText("6:45 PM - $600;");
+		            		
+		            	}
+	
+					//waiting.setText("Select One Time");
+		            	//	times1.setText("11:30 AM - $150\n");
+		            		//times2.setText("12:20 PM - $230\n");
+		            		//times3.setText("1:15 PM - $275");
+	
+		            	//fileIO locLog = new fileIO();
+		            	//locLog.writeToFile(strSTA, strEND);
+	            	}
 	            }
 	        });
 		//payment method
@@ -466,7 +591,7 @@ public class Main extends Application
 					        public void run() 
 					        {
 					        	if (nameF.getText().isEmpty() || startLocTF.getValue()== null || endLocTF.getValue()== null || emailF.getText().isEmpty() 
-					        			|| CardF.getText().isEmpty()) {
+					        			|| CardF.getText().isEmpty() || paymentChosen.equals(" ") || timeChosen.equals(" ")) {
 					        		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 							           
 							           alert.setTitle("Incomplete Data");
@@ -489,6 +614,14 @@ public class Main extends Application
 							           else if(CardF.getText().isEmpty()) {
 							        	   alert.setHeaderText("Card Field Cannot Be Empty");
 								           alert.setContentText("Please fill in your card number.");
+							           }
+							           else if(paymentChosen.equals(" ")) {
+							        	   alert.setHeaderText("Payment type must be selected");
+								           alert.setContentText("Please select a payment type.");
+							           }
+							           else if(timeChosen.equals(" ")) {
+							        	   alert.setHeaderText("Time must be selected");
+								           alert.setContentText("Please select a time.");
 							           }
 							           Optional<ButtonType> result = alert.showAndWait();
 							           
@@ -526,6 +659,8 @@ public class Main extends Application
 	            	                su.sendMessage(msg1);
 	            	                msg1 = "Card #: "+ CardF.getText();
 	            	                su.sendMessage(msg1);
+	            	                msg1 = "Time and Price: "+ timeChosen;
+	            	                su.sendMessage(msg1);
 	            	                
 	            	                
 	            	                msg = "quit";
@@ -537,12 +672,14 @@ public class Main extends Application
 	            	                try{
 	            	                	Email email = new Email("tanvirthrowaway@gmail.com", "JavaFx@67");
 	            	                	email.setFrom("tanvirthrowaway@gmail.com", "Expedia SE Project");
-	            	                	email.setSubject("Test");
+	            	                	email.setSubject("Expedia Purchase Receipt");
 	            	                	email.setContent("<h1>Thank You For Your Expedia Purchase!</h1>"
 	            	                			+ "<p>"
 	            	                			+ "Starting Location: "+ startLocTF.getValue() 
 	            	                			+ "<br>" + "Ending Location: "+ endLocTF.getValue()
 	            	                			+ "<br>" + "Email: " + emailF.getText()
+	            	                			+ "<br>" + "Payment Method: "+ paymentChosen
+	            	                			+ "<br>" + "Time and Price: "+ timeChosen
 	            	                			+ "<br> Card #: "+ CardF.getText()
 	            	                			+ "</p>", "text/html");
 	            	                	email.addRecipient(emailF.getText());
@@ -651,7 +788,7 @@ public class Main extends Application
 					             alert.setTitle("--- Ticket Kiosk ---");
 					             alert.setHeaderText("Transaction Log File");
 					          
-					             alert.setContentText(logString);
+					             alert.setContentText("...\n"+logString.substring(logString.length()-1000,logString.length()-1));
 					             alert.setWidth(300);
 					             alert.setHeight(600);
 					             alert.showAndWait();

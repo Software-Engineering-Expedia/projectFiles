@@ -9,6 +9,9 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Date;
 import java.util.Optional;
+
+import org.apache.commons.lang3.StringUtils;
+
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -44,22 +47,31 @@ public class expediaServer extends Application
 	public static TextArea ta = new TextArea();
 	TextArea               clock;
 	public static int[] startTrack = {0,0,0,0,0,0,0,0};
+	public static String[] locations = {"Miami",
+									    "New York City",
+									    "Los Angeles",
+									    "Nairobi",
+									    "Tokyo",
+									    "Atlantis",
+									    "London",
+									    "Paris"};
 	
-	static int countOccurences(String str, String word)
+	
+	static int countOccurences(String str, String findStr)
 	{
-	    // split the string by spaces in a
-	    String a[] = str.split(" ");
-	 
-	    // search for pattern in a
-	    int count = 0;
-	    for (int i = 0; i < a.length; i++)
-	    {
-	    // if match found increase count
-	    if (word.equals(a[i]))
-	        count++;
-	    }
-	 
-	    return count;
+		int lastIndex = 0;
+		int count = 0;
+
+		while(lastIndex != -1){
+
+		    lastIndex = str.indexOf(findStr,lastIndex);
+
+		    if(lastIndex != -1){
+		        count ++;
+		        lastIndex += findStr.length();
+		    }
+		}
+		return count;
 	}
 	
 	@Override
@@ -248,7 +260,7 @@ public class expediaServer extends Application
 				             alert.setTitle("--- Ticket Kiosk ---");
 				             alert.setHeaderText("Transaction Log File");
 				          
-				             alert.setContentText(logString);
+				             alert.setContentText("...\n"+logString.substring(logString.length()-1000,logString.length()-1));
 				             alert.setWidth(300);
 				             alert.setHeight(600);
 				             alert.showAndWait();
@@ -328,10 +340,29 @@ public class expediaServer extends Application
 				          
 				          startTrack[0] = countOccurences(logString, "Miami");
 				          startTrack[1] = countOccurences(logString, "New York City");
-				          System.out.println(startTrack[0]);
-				          System.out.println(startTrack[1]);
+				          startTrack[2] = countOccurences(logString, "Los Angeles");
+				          startTrack[3] = countOccurences(logString, "Nairobi");
+				          startTrack[4] = countOccurences(logString, "Tokyo");
+				          startTrack[5] = countOccurences(logString, "Atlantis");
+				          startTrack[6] = countOccurences(logString, "London");
+				          startTrack[7] = countOccurences(logString, "Paris");
+				          int largest = 0;
+				          for ( int i = 1; i < startTrack.length; i++ )
+				          {
+				              if ( startTrack[i] > startTrack[largest] ) largest = i;
+				          }
+				          String[] values= StringUtils.substringsBetween(logString,"$",";");
+				          int sum=0;
+				          for(int i = 0;i < values.length;i++)
+				          {
+				             // Note that this is assuming valid input
+				             // If you want to check then add a try/catch 
+				             // and another index for the numbers if to continue adding the others (see below)
+				             sum += Integer.parseInt(values[i]);
+				          }
 				          
-				          alert.setContentText("Average Money Spent By Customers: $267.80\nMost Popular City: New York City\nMost Popular Flight Time: 1:00 P.M.\n");
+				          
+				          alert.setContentText("Total Money Spent By Customers: $"+sum+"\nAverage Money Spent By Customers: $"+sum/values.length+"\nMost Popular City: "+locations[largest]);
 				          
 				          alert.showAndWait();
 				        }
