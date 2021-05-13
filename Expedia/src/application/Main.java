@@ -131,19 +131,10 @@ public class Main extends Application
 	            {
 	            	String strSTA = startLocTF.getValue();
 	            	String strEND = endLocTF.getValue();
-	            	
-	            	System.out.println(strEND);
-	            	if(strEND =="Miami")
-	            	{
-	            		//waiting.setText("Select One Time");
 	            		times1.setText("11:30 AM\n");
 	            		times2.setText("12:20 PM\n");
 	            		times3.setText("1:15 PM");
-	            	}
-	            	else
-	            	{
-	            		waiting.setText( "1");
-	            	}
+
 	            	//fileIO locLog = new fileIO();
 	            	//locLog.writeToFile(strSTA, strEND);
 				
