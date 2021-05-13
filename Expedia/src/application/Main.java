@@ -39,7 +39,7 @@ public class Main extends Application
 	{
 		try {
 			primaryStage.setTitle("Expedia");
-			primaryStage.setWidth(1070);
+			primaryStage.setWidth(1120);
 			primaryStage.setHeight(600);
 	        
 	        TextArea ta = new TextArea();
