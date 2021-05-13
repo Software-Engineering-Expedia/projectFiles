@@ -43,6 +43,24 @@ public class expediaServer extends Application
 	public static TextArea textArea_4 = new TextArea();
 	public static TextArea ta = new TextArea();
 	TextArea               clock;
+	public static int[] startTrack = {0,0,0,0,0,0,0,0};
+	
+	static int countOccurences(String str, String word)
+	{
+	    // split the string by spaces in a
+	    String a[] = str.split(" ");
+	 
+	    // search for pattern in a
+	    int count = 0;
+	    for (int i = 0; i < a.length; i++)
+	    {
+	    // if match found increase count
+	    if (word.equals(a[i]))
+	        count++;
+	    }
+	 
+	    return count;
+	}
 	
 	@Override
 	public void start (Stage stage) throws FileNotFoundException
@@ -278,6 +296,40 @@ public class expediaServer extends Application
 				          alert.setTitle("--- Stat Tracker ---");
 				          alert.setHeaderText("Client Data");
 				          alert.setResizable(true);
+				          
+				          String logString = "";
+				          
+				          try
+				            {
+				        	      File f = new File("transactionLog.txt");
+				        	      if (f.exists())
+				        	      {
+				                    FileReader reader = new FileReader("transactionLog.txt");
+				                    BufferedReader br = new BufferedReader(reader);
+				                  
+				                    String line = br.readLine();
+				                    while (line != null)
+				                    {
+				                    	logString = logString + line + "\r\n";
+				                    	line = br.readLine();
+				                    }
+				                    
+				                    br.close();
+				        	      }
+				        	      else
+				        	      {
+				        	    	  logString = "No log File Found!";
+				        	      }
+				        	 }
+				             catch(Exception e2)
+				             {   
+				        	    e2.printStackTrace(); 
+				             }
+				          
+				          startTrack[0] = countOccurences(logString, "Miami");
+				          startTrack[1] = countOccurences(logString, "New York City");
+				          System.out.println(startTrack[0]);
+				          System.out.println(startTrack[1]);
 				          
 				          alert.setContentText("Average Money Spent By Customers: $267.80\nMost Popular City: New York City\nMost Popular Flight Time: 1:00 P.M.\n");
 				          
