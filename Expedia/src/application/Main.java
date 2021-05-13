@@ -468,6 +468,58 @@ public class Main extends Application
 	          
 	        });
 		
+		Button logData = new Button("Log Data");
+			logData.setOnAction(new EventHandler<ActionEvent>()
+			{
+				@Override
+			 	public void handle(ActionEvent e)
+			 	{
+					Platform.runLater(new Runnable() 
+					 { 
+						    String logString = "";
+						    
+					        public void run() 
+					        {
+					        	try
+					            {
+					        	      File f = new File("transactionLog.txt");
+					        	      if (f.exists())
+					        	      {
+					                    FileReader reader = new FileReader("transactionLog.txt");
+					                    BufferedReader br = new BufferedReader(reader);
+					                  
+					                    String line = br.readLine();
+					                    while (line != null)
+					                    {
+					                    	logString = logString + line + "\r\n";
+					                    	line = br.readLine();
+					                    }
+					                    
+					                    br.close();
+					        	      }
+					        	      else
+					        	      {
+					        	    	  logString = "No log File Found!";
+					        	      }
+					        	 }
+					             catch(Exception e2)
+					             {   
+					        	    e2.printStackTrace(); 
+					             }		
+					        	
+					             Alert alert = new Alert(Alert.AlertType.INFORMATION);
+					             alert.setTitle("--- Ticket Kiosk ---");
+					             alert.setHeaderText("Transaction Log File");
+					          
+					             alert.setContentText(logString);
+					             alert.setWidth(300);
+					             alert.setHeight(600);
+					             alert.showAndWait();
+					        }
+					    });	
+				}
+			});
+		
 		Button helpButton = new Button("HELP");
 			helpButton.setOnAction(new EventHandler<ActionEvent>()
 			{
@@ -486,7 +538,8 @@ public class Main extends Application
 					        		      "- Click on FIND TIMES to get a list of Depart Times to choose from.\r\n" +
 					        		      "- Click on one of the Recommendations to purchase a great-value, preset package.\r\n" +
 					        		      "- Please fill out all forms before submitting for purchase.\r\n" +
-					        		      "- Click on SUBMIT to confirm a purchase.\r\n";
+					        		      "- Click on SUBMIT to confirm a purchase.\r\n" +
+					        		      "- Click on LOG DATA to display current logs.\r\n";
 					         
 					          alert.setContentText(hStr);
 					          alert.showAndWait();
@@ -529,8 +582,9 @@ public class Main extends Application
 			
 			//Gridpane for payment
 	        	contact.add(submitButton, 1, 7, 1, 1);
-			contact.add(helpButton, 2, 8, 1, 1);
-			contact.add(exitButton, 3, 8, 1, 1);
+			contact.add(logData, 2, 8, 1, 1);
+			contact.add(helpButton, 3, 8, 1, 1);
+			contact.add(exitButton, 4, 8, 1, 1);
 			contact.setVgap(5);
 			
 			//Gridpane for Body
