@@ -261,7 +261,7 @@ public class Main extends Application
 			Button buttonParis = new Button ("    Paris    ", imageParis);
 			imageParis.setFitWidth(160);
 			imageParis.setFitHeight(160);
-			buttonLondon.setOnAction(new EventHandler<ActionEvent>()
+			buttonParis.setOnAction(new EventHandler<ActionEvent>()
 	                {
 	                    @Override public void handle(ActionEvent e)
 	                    {
