@@ -467,9 +467,42 @@ public class Main extends Application
 	            }
 	          
 	        });
+		
+		Button exitButton = new Button("EXIT");
+			exitButton.setOnAction(new EventHandler<ActionEvent>()
+			{
+				@Override
+			 	public void handle(ActionEvent e)
+			 	{
+					Platform.runLater(new Runnable() 
+					 {
+					        public void run() 
+					        {
+					           Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+					           
+					           alert.setTitle("Confirmation Dialog");
+					           alert.setHeaderText("EXIT confirmation dialog");
+					           alert.setContentText("Are you sure you want to exit this Socket Server Program?");
+
+					           Optional<ButtonType> result = alert.showAndWait();
+					           
+					           if (result.get() == ButtonType.OK)
+					           {
+						           sockServer.writeHashTableData();
+						           System.exit(0);
+					           }
+					           else 
+					           {
+					               // ... user chose CANCEL or closed the dialog
+					           }
+					        }
+					    });	
+				}
+			});
 			
 			//Gridpane for payment
-	        contact.add(submitButton, 1, 7, 1, 1);
+	        	contact.add(submitButton, 1, 7, 1, 1);
+			contact.add(exitButton, 2, 8, 1, 1);
 			contact.setVgap(5);
 			
 			//Gridpane for Body
