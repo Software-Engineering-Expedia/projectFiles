@@ -60,7 +60,7 @@ public class Main extends Application
 		
 			//DepartTimes
 			GridPane right = new GridPane();
-			Label lb1        = new Label("Depart Times:                         "
+			Label lb1        = new Label("Depart Times and Price:                         "
 						+ "       ");
 			right.setMinWidth(200);
 			right.setMaxWidth(200);
@@ -131,9 +131,9 @@ public class Main extends Application
 	            {
 	            	String strSTA = startLocTF.getValue();
 	            	String strEND = endLocTF.getValue();
-	            		times1.setText("11:30 AM\n");
-	            		times2.setText("12:20 PM\n");
-	            		times3.setText("1:15 PM");
+	            		times1.setText("11:30 AM - $150\n");
+	            		times2.setText("12:20 PM - $230\n");
+	            		times3.setText("1:15 PM - $275");
 
 	            	//fileIO locLog = new fileIO();
 	            	//locLog.writeToFile(strSTA, strEND);
