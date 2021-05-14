@@ -56,7 +56,7 @@ public class expediaServer extends Application
 									    "London",
 									    "Paris"};
 	
-	
+	//Important method for stat tracking
 	static int countOccurences(String str, String findStr)
 	{
 		int lastIndex = 0;
