@@ -579,7 +579,7 @@ public class Main extends Application
 			contact.add(RB1, 1, 4, 1, 1);
 			contact.add(RB2, 1, 5, 1, 1);
 			
-			
+			//Added insurance that fields must be filled out
 			Button submitButton    = new Button("SUBMIT");     
 	        submitButton.setOnAction(new EventHandler<ActionEvent>() 
 	        {
@@ -878,7 +878,7 @@ public class Main extends Application
 
 			
 			
-			
+			//Setup layout 
 			BorderPane bp = new BorderPane();
 		bp.setBackground(new Background(OrangeBG));
 	        bp.setTop(clock);
