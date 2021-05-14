@@ -144,6 +144,7 @@ public class expediaServer extends Application
 		ta.setPrefWidth(10);
 		ta.setPrefHeight(10);
 		ta.setEditable(false);
+		ta.setText("1");
 		hbox.getChildren().add(ta);
 		gridPane_3.getChildren().add(hbox);
 		gridPane_3.setStyle("-fx-background-color:#ffdc64; -fx-opacity:1;");
