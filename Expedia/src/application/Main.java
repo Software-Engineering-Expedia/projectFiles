@@ -71,14 +71,12 @@ public class Main extends Application
 						+ "       ");
 			right.setMinWidth(200);
 			right.setMaxWidth(200);
-			//TextArea times = new TextArea();
 			RadioButton times1 = new RadioButton();
 			RadioButton times2 = new RadioButton();
 			RadioButton times3 = new RadioButton();
 			TextArea waiting = new TextArea();
-		        //times.setEditable(false);
-		        times1.setPrefHeight(300);   
-		        times1.setPrefWidth(300);
+		    times1.setPrefHeight(300);   
+		    times1.setPrefWidth(300);
 			waiting.setText("Waiting for input");
 			times2.setPrefHeight(300);   
 	        times2.setPrefWidth(300);
@@ -117,10 +115,6 @@ public class Main extends Application
 			//TextField startLocTF   = new TextField();
 			Label endLoc        = new Label(" Ending Location: ");
 			endLoc.setStyle("-fx-font-weight: bold");
-			//TextField endLocTF   = new TextField();
-			Label answerL      = new Label("Answer : ");
-			TextField answerTF = new TextField();
-			
 			ComboBox<String> startLocTF = new ComboBox<String>();
 			startLocTF.getItems().addAll(
 				    "Miami",
@@ -157,42 +151,42 @@ public class Main extends Application
 	            	if (startLocTF.getValue()== null || endLocTF.getValue()== null) {
 		        		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 				           
-				           alert.setTitle("Incomplete Data");
-				           if(startLocTF.getValue() == null) {
-				        	   alert.setHeaderText("Starting Location Cannot Be Empty");
-					           alert.setContentText("Please fill in your starting location.");
-				           }
+				        alert.setTitle("Incomplete Data");
+				        if(startLocTF.getValue() == null) {
+				        	alert.setHeaderText("Starting Location Cannot Be Empty");
+					        alert.setContentText("Please fill in your starting location.");
+				        }
 				           
-				           else if(endLocTF.getValue() == null) {
-				        	   alert.setHeaderText("Ending Location Cannot Be Empty");
-					           alert.setContentText("Please fill in your desired ending location.");
-				           }
+				        else if(endLocTF.getValue() == null) {
+				        	alert.setHeaderText("Ending Location Cannot Be Empty");
+					        alert.setContentText("Please fill in your desired ending location.");
+				        }
 				           
-				           Optional<ButtonType> result = alert.showAndWait();
+				        Optional<ButtonType> result = alert.showAndWait();
 				           
-				           if (result.get() == ButtonType.OK)
-				           {
+				        if (result.get() == ButtonType.OK)
+				        {
 					         
-				           }
-				           else 
-				           {
+				        }
+				        else 
+				        {
 				               // ... user chose CANCEL or closed the dialog
-				           }
+				        }
 		        	}
 	            	else if(startLocTF.getValue().equals(endLocTF.getValue())) {
 	            		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 				           
-				           alert.setTitle("Error");
-				           alert.setHeaderText("Starting Location and Ending Location cannot Match");
-					       alert.setContentText("Please change starting or ending location.");
+				        alert.setTitle("Error");
+				        alert.setHeaderText("Starting Location and Ending Location cannot Match");
+					    alert.setContentText("Please change starting or ending location.");
 				           
-				           Optional<ButtonType> result = alert.showAndWait();
+				        Optional<ButtonType> result = alert.showAndWait();
 				           
-				           if (result.get() == ButtonType.OK)
+				        if (result.get() == ButtonType.OK)
 				           {
 					         
 				           }
-				           else 
+				        else 
 				           {
 				               // ... user chose CANCEL or closed the dialog
 				           }
@@ -258,55 +252,47 @@ public class Main extends Application
 		            		times3.setText("6:45 PM - $600;");
 		            		
 		            	}
-	
-					//waiting.setText("Select One Time");
-		            	//	times1.setText("11:30 AM - $150\n");
-		            		//times2.setText("12:20 PM - $230\n");
-		            		//times3.setText("1:15 PM - $275");
-	
-		            	//fileIO locLog = new fileIO();
-		            	//locLog.writeToFile(strSTA, strEND);
 	            	}
 	            }
 	        });
-		//payment method
-		Label name           = new Label("\t Name : ");
-		TextField nameF      = new TextField();
-		Label nameERR        = new Label("");
-		Label phone	         = new Label("\t Phone Number: ");
-		TextField phoneF     = new TextField();
-		Label phoneERR       = new Label("");
-		Label email          = new Label("\t Email : ");
-		TextField emailF     = new TextField();
-		Label emailERR       = new Label("");
-		Label blank          = new Label ("");
-		Label pay			 = new Label ("\t Payment Method :  Select      ");
-		Label Card           = new Label ("\t Card Number : ");
-		TextField CardF      = new TextField();
-		Label help           = new Label("");
+			//payment method
+			Label name           = new Label("\t Name : ");
+			TextField nameF      = new TextField();
+			Label nameERR        = new Label("");
+			Label phone	         = new Label("\t Phone Number: ");
+			TextField phoneF     = new TextField();
+			Label phoneERR       = new Label("");
+			Label email          = new Label("\t Email : ");
+			TextField emailF     = new TextField();
+			Label emailERR       = new Label("");
+			Label blank          = new Label ("");
+			Label pay			 = new Label ("\t Payment Method :  Select      ");
+			Label Card           = new Label ("\t Card Number : ");
+			TextField CardF      = new TextField();
+			Label help           = new Label("");
 		
-		ToggleGroup Payment = new ToggleGroup();
-		RadioButton RB1 = new RadioButton("Credit\t");
-		RadioButton RB2 = new RadioButton("Debit\t");
-		RB1.setToggleGroup(Payment);
-		RB2.setToggleGroup(Payment);
+			ToggleGroup Payment = new ToggleGroup();
+			RadioButton RB1 = new RadioButton("Credit\t");
+			RadioButton RB2 = new RadioButton("Debit\t");
+			RB1.setToggleGroup(Payment);
+			RB2.setToggleGroup(Payment);
 		
-		Payment.selectedToggleProperty().addListener(new ChangeListener<Toggle>()  
-        { 
-            public void changed(ObservableValue<? extends Toggle> ob,  
-                                                    Toggle o, Toggle n) 
-            { 
-  
-                RadioButton rb = (RadioButton)Payment.getSelectedToggle(); 
-  
-                if (rb != null) { 
-                    String s = rb.getText(); 
-                    paymentChosen = s;
-                    // change the label 
-                    pay.setText("\t Payment Method : " + s); 
-                } 
-            } 
-        });
+			Payment.selectedToggleProperty().addListener(new ChangeListener<Toggle>()  
+	        { 
+	            public void changed(ObservableValue<? extends Toggle> ob,  
+	                                                    Toggle o, Toggle n) 
+	            { 
+	  
+	                RadioButton rb = (RadioButton)Payment.getSelectedToggle(); 
+	  
+	                if (rb != null) { 
+	                    String s = rb.getText(); 
+	                    paymentChosen = s;
+	                    // change the label 
+	                    pay.setText("\t Payment Method : " + s); 
+	                } 
+	            } 
+	        });
 		
 			
 			//Image Buttons (Just going to be lying around for now)
